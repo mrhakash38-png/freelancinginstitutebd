@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom'
+import VideoCard from '../components/VideoCard'
+import { videos } from '../data/videos'
 
 const services = [
   {
@@ -73,6 +75,24 @@ export default function Services() {
                 <h3>{p.t}</h3>
                 <p>{p.d}</p>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Tips Videos */}
+      <section className="section">
+        <div className="container">
+          <div className="section-head">
+            <div>
+              <p className="pre-label">Free Tips from Our Instructor</p>
+              <h2>Freelancing Tips — Watch Free</h2>
+            </div>
+            <Link to="/videos" className="btn btn-outline">All Videos →</Link>
+          </div>
+          <div className="grid-3">
+            {videos.tips.map(v => (
+              <VideoCard key={v.id} video={v} size="md" />
             ))}
           </div>
         </div>

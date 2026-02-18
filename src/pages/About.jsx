@@ -1,4 +1,7 @@
 import { Link } from 'react-router-dom'
+import VideoCard from '../components/VideoCard'
+import VideoEmbed from '../components/VideoEmbed'
+import { videos } from '../data/videos'
 
 const team = [
   { init: 'R', name: 'Rakibul Hasan', role: 'Founder & CEO', bio: 'Top-rated Upwork freelancer. $200K+ earned. 8 years in digital services.' },
@@ -94,6 +97,43 @@ export default function About() {
                 <h3>{v.t}</h3>
                 <p>{v.d}</p>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Instructor Video */}
+      <section className="section">
+        <div className="container">
+          <div className="video-section">
+            <div className="video-text">
+              <p className="pre-label">Meet the Founder</p>
+              <h2>Hamidur Rahman — Freelancer, Trainer, Mentor</h2>
+              <p style={{ color: 'var(--muted)', marginTop: '1rem', lineHeight: 1.75 }}>
+                Hamidur Rahman is a Top Rated freelancer with years of real marketplace experience.
+                In this message, he shares why he started Freelancing Institute BD and what drives
+                him to train the next generation of Bangladeshi freelancers.
+              </p>
+              <div style={{ display: 'flex', gap: '0.75rem', marginTop: '1.5rem', flexWrap: 'wrap' }}>
+                <Link to="/videos" className="btn btn-outline">Watch All Free Videos →</Link>
+                <Link to="/admission" className="btn">Join a Batch →</Link>
+              </div>
+            </div>
+            <div className="video-wrap">
+              <VideoEmbed videoId={videos.about.id} title={videos.about.titleEn} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Inspiration Videos */}
+      <section className="section alt-section">
+        <div className="container">
+          <p className="pre-label center">Watch & Get Inspired</p>
+          <h2 className="center">Why Freelancing Changes Lives</h2>
+          <div className="grid-3" style={{ marginTop: '2rem' }}>
+            {videos.inspiration.map(v => (
+              <VideoCard key={v.id} video={v} size="md" />
             ))}
           </div>
         </div>

@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
 import VideoEmbed from '../components/VideoEmbed'
+import VideoCard from '../components/VideoCard'
+import { videos } from '../data/videos'
 
 const stats = [
   { v: '5,000+', l: 'Students Trained' },
@@ -148,24 +150,44 @@ export default function Home() {
         <div className="container">
           <div className="video-section">
             <div className="video-text">
-              <p className="pre-label">See It for Yourself</p>
-              <h2>Watch How Our Students Transform Their Lives</h2>
+              <p className="pre-label">From Our Instructor</p>
+              <h2>Watch: একটা স্কিলেই লাখ টাকা ইনকাম সম্ভব</h2>
               <p style={{ color: 'var(--muted)', marginTop: '1rem', fontSize: '1rem', lineHeight: 1.75 }}>
-                In this short video, meet real FIBD graduates — a housewife from Barishal, a student from
-                Rajshahi, and a young man from Sylhet — all earning life-changing income online.
+                Hamidur Rahman — our founder and lead instructor — explains how mastering a single
+                freelancing skill can unlock a lakh-taka monthly income for anyone in Bangladesh,
+                regardless of background.
               </p>
               <ul className="video-bullets">
-                <li>🎬 Full course walkthroughs with instructors</li>
-                <li>📍 Student success stories in their own words</li>
-                <li>💡 Behind-the-scenes of our live class format</li>
+                <li>🎬 Real income proof and strategy</li>
+                <li>📍 Which skills pay the most right now</li>
+                <li>💡 How to pick the right niche for you</li>
               </ul>
-              <Link to="/success-stories" className="btn btn-outline" style={{ marginTop: '1.5rem' }}>
-                Read All Success Stories →
-              </Link>
+              <div style={{ display: 'flex', gap: '0.75rem', marginTop: '1.5rem', flexWrap: 'wrap' }}>
+                <Link to="/videos" className="btn btn-outline">Watch All Free Videos →</Link>
+                <Link to="/success-stories" className="btn btn-ghost">Student Stories →</Link>
+              </div>
             </div>
             <div className="video-wrap">
-              <VideoEmbed videoId="ZJthWmvUzzc" title="Freelancing Institute BD — Student Stories" />
+              <VideoEmbed videoId={videos.hero.id} title={videos.hero.titleEn} />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Success Video Teasers ─── */}
+      <section className="section">
+        <div className="container">
+          <div className="section-head">
+            <div>
+              <p className="pre-label">Proof It Works</p>
+              <h2>Student Earnings — In Their Own Words</h2>
+            </div>
+            <Link to="/videos" className="btn btn-outline">All Videos →</Link>
+          </div>
+          <div className="grid-3">
+            {videos.successStories.slice(0, 3).map(v => (
+              <VideoCard key={v.id} video={v} size="md" />
+            ))}
           </div>
         </div>
       </section>

@@ -9,6 +9,7 @@ const navLinks = [
   { to: '/success-stories', label: 'Success Stories' },
   { to: '/blog', label: 'Blog' },
   { to: '/gallery', label: 'Gallery' },
+  { to: '/videos', label: '▶ Videos' },
   { to: '/admission', label: 'Admission' },
 ]
 

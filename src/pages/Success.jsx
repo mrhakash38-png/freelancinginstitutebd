@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom'
+import VideoCard from '../components/VideoCard'
+import { videos } from '../data/videos'
 
 const stories = [
   {
@@ -89,9 +91,27 @@ export default function Success() {
         </div>
       </div>
 
+      {/* Video success stories */}
+      <section className="section">
+        <div className="container">
+          <p className="pre-label center">Watch the Proof</p>
+          <h2 className="center">Success Stories — On Video</h2>
+          <p className="lead center" style={{ margin: '0.75rem auto 1.5rem' }}>
+            Real students, real earnings — watch their stories in their own words.
+          </p>
+          <div className="grid-2" style={{ gap: '1.5rem' }}>
+            {videos.successStories.map(v => (
+              <VideoCard key={v.id} video={v} size="lg" />
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Stories grid */}
       <section className="section">
         <div className="container">
+          <p className="pre-label center">Written Testimonials</p>
+          <h2 className="center" style={{ marginBottom: '2.5rem' }}>What Our Graduates Say</h2>
           <div className="story-grid">
             {stories.map(s => (
               <div key={s.name} className="card story-card">

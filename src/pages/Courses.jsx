@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom'
+import VideoCard from '../components/VideoCard'
+import { videos } from '../data/videos'
 
 const modules = [
   {
@@ -93,6 +95,40 @@ export default function Courses() {
           <p className="lead">Each course is designed by active freelancers — practical, structured, and marketplace-ready.</p>
         </div>
       </div>
+
+      {/* Free Class Videos */}
+      <section className="section alt-section">
+        <div className="container">
+          <div className="section-head">
+            <div>
+              <p className="pre-label">Free Preview Classes</p>
+              <h2>Watch Before You Enroll</h2>
+            </div>
+            <Link to="/videos" className="btn btn-outline">All Free Videos →</Link>
+          </div>
+
+          {/* Digital Marketing Series */}
+          <h3 style={{ marginBottom: '1rem', marginTop: '0.5rem' }}>📈 Digital Marketing — Free Lessons</h3>
+          <div className="grid-3" style={{ marginBottom: '2.5rem' }}>
+            {videos.digitalMarketing.map(v => (
+              <VideoCard key={v.id} video={v} size="md" />
+            ))}
+          </div>
+
+          {/* YouTube Series */}
+          <h3 style={{ marginBottom: '1rem' }}>▶️ YouTube Marketing — Free Series (8 Classes)</h3>
+          <div className="grid-3">
+            {videos.youtubeMarketing.slice(0, 6).map(v => (
+              <VideoCard key={v.id} video={v} size="md" />
+            ))}
+          </div>
+          <div className="grid-3" style={{ marginTop: '1.25rem' }}>
+            {videos.youtubeMarketing.slice(6).map(v => (
+              <VideoCard key={v.id} video={v} size="md" />
+            ))}
+          </div>
+        </div>
+      </section>
 
       <section className="section">
         <div className="container">

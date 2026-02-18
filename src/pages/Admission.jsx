@@ -1,4 +1,7 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import VideoCard from '../components/VideoCard'
+import { videos } from '../data/videos'
 
 const courses = [
   'Professional Graphic Design',
@@ -125,8 +128,24 @@ export default function Admission() {
         </div>
       </section>
 
-      {/* FAQ */}
+      {/* Course Announcement Videos */}
       <section className="section alt-section">
+        <div className="container">
+          <p className="pre-label center">Batch Announcements</p>
+          <h2 className="center">Upcoming Course Batches — Watch</h2>
+          <p className="lead center" style={{ margin: '0.75rem auto 2rem' }}>
+            Watch our latest batch announcement videos to see what's included and when the next intake starts.
+          </p>
+          <div className="grid-3">
+            {videos.admission.map(v => (
+              <VideoCard key={v.id} video={v} size="md" />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="section">
         <div className="container">
           <p className="pre-label center">Got Questions?</p>
           <h2 className="center">Frequently Asked Questions</h2>
