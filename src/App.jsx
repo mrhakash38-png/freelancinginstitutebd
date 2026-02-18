@@ -6,6 +6,9 @@ import Services from './pages/Services'
 import Admission from './pages/Admission'
 import About from './pages/About'
 import Success from './pages/Success'
+import Blog from './pages/Blog'
+import BlogPost from './pages/BlogPost'
+import Gallery from './pages/Gallery'
 import './App.css'
 
 export default function App() {
@@ -18,6 +21,9 @@ export default function App() {
         <Route path="admission" element={<Admission />} />
         <Route path="about" element={<About />} />
         <Route path="success-stories" element={<Success />} />
+        <Route path="blog" element={<Blog />} />
+        <Route path="blog/:slug" element={<BlogPost />} />
+        <Route path="gallery" element={<Gallery />} />
       </Route>
     </Routes>
   )

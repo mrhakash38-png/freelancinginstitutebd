@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import VideoEmbed from '../components/VideoEmbed'
 
 const stats = [
   { v: '5,000+', l: 'Students Trained' },
@@ -8,12 +9,30 @@ const stats = [
 ]
 
 const courses = [
-  { icon: '🎨', title: 'Graphic Design', desc: 'Adobe Photoshop, Illustrator, brand identity & client workflow.', weeks: '16 Weeks' },
-  { icon: '💻', title: 'Web Development', desc: 'WordPress, Elementor, custom themes, client delivery.', weeks: '20 Weeks' },
-  { icon: '📈', title: 'Digital Marketing', desc: 'SEO, Meta Ads, Google Ads, content strategy.', weeks: '12 Weeks' },
-  { icon: '✍️', title: 'Content Writing', desc: 'SEO writing, copywriting, Upwork profile building.', weeks: '8 Weeks' },
-  { icon: '🛒', title: 'eCommerce & Dropshipping', desc: 'Shopify, Amazon FBA, product research, scaling.', weeks: '12 Weeks' },
-  { icon: '📊', title: 'Data Entry & VA', desc: 'Virtual assistant skills, spreadsheets, remote work tools.', weeks: '6 Weeks' },
+  {
+    icon: '🎨', title: 'Graphic Design', desc: 'Adobe Photoshop, Illustrator, brand identity & client workflow.', weeks: '16 Weeks',
+    img: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?w=600&q=80',
+  },
+  {
+    icon: '💻', title: 'Web Development', desc: 'WordPress, Elementor, custom themes, client delivery.', weeks: '20 Weeks',
+    img: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&q=80',
+  },
+  {
+    icon: '📈', title: 'Digital Marketing', desc: 'SEO, Meta Ads, Google Ads, content strategy.', weeks: '12 Weeks',
+    img: 'https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=600&q=80',
+  },
+  {
+    icon: '✍️', title: 'Content Writing', desc: 'SEO writing, copywriting, Upwork profile building.', weeks: '8 Weeks',
+    img: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?w=600&q=80',
+  },
+  {
+    icon: '🛒', title: 'eCommerce & Dropshipping', desc: 'Shopify, Amazon FBA, product research, scaling.', weeks: '12 Weeks',
+    img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80',
+  },
+  {
+    icon: '📊', title: 'Data Entry & VA', desc: 'Virtual assistant skills, spreadsheets, remote work tools.', weeks: '6 Weeks',
+    img: 'https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=600&q=80',
+  },
 ]
 
 const why = [
@@ -25,10 +44,55 @@ const why = [
   { icon: '🇧🇩', t: 'Bangla Medium', d: 'All instruction in Bangla so you learn faster, not slower.' },
 ]
 
+const testimonials = [
+  {
+    name: 'Mehedi Hasan', loc: 'Sylhet', course: 'Graphic Design', income: '৳85K/mo',
+    img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80',
+    quote: 'I was a rickshaw driver\'s son with zero computer background. FIBD changed my entire life.',
+  },
+  {
+    name: 'Rina Akter', loc: 'Chittagong', course: 'Digital Marketing', income: '৳65K/mo',
+    img: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80',
+    quote: 'I studied at midnight while raising two kids. Now I have 3 retainer clients.',
+  },
+  {
+    name: 'Jahangir Alam', loc: 'Rajshahi', course: 'WordPress Dev', income: '৳1.2L/mo',
+    img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80',
+    quote: 'Quit my government job after 6 months. My income is now 4x what I earned before.',
+  },
+]
+
+const recentPosts = [
+  {
+    slug: 'how-to-start-freelancing-2026',
+    title: 'How to Start Freelancing in Bangladesh in 2026',
+    excerpt: 'A step-by-step guide for absolute beginners — choosing a skill, building a profile, and landing your first client.',
+    date: 'Feb 10, 2026',
+    tag: 'Beginner Guide',
+    img: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=600&q=80',
+  },
+  {
+    slug: 'upwork-vs-fiverr-bangladesh',
+    title: 'Upwork vs Fiverr: Which is Better for Bangladeshi Freelancers?',
+    excerpt: 'We break down earnings, competition, payment methods, and which platform suits which skills.',
+    date: 'Feb 3, 2026',
+    tag: 'Platform Guide',
+    img: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600&q=80',
+  },
+  {
+    slug: 'top-5-freelancing-skills-2026',
+    title: 'Top 5 Highest-Paying Freelancing Skills in 2026',
+    excerpt: 'Based on real Upwork and Fiverr data — the skills that pay the most right now and how to learn them.',
+    date: 'Jan 27, 2026',
+    tag: 'Career Tips',
+    img: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&q=80',
+  },
+]
+
 export default function Home() {
   return (
     <>
-      {/* Hero */}
+      {/* ─── Hero ─── */}
       <section className="hero">
         <div className="container hero-inner">
           <div className="hero-text">
@@ -49,33 +113,64 @@ export default function Home() {
             </div>
           </div>
           <div className="hero-visual">
-            <div className="hero-card card">
-              <div className="hc-header">Your journey in 4 steps</div>
-              {['Enroll in a course','Learn from active freelancers','Build your portfolio','Land your first client 🎉'].map((s,i)=>(
-                <div key={i} className="hc-step">
-                  <div className="hc-num">{i+1}</div>
-                  <span>{s}</span>
+            <div className="hero-img-card">
+              <img
+                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=700&q=80"
+                alt="Students learning freelancing"
+                className="hero-img"
+              />
+              <div className="hero-img-badge">
+                <span className="hib-icon">🎉</span>
+                <div>
+                  <div className="hib-val">1,500+</div>
+                  <div className="hib-lbl">Earning This Month</div>
                 </div>
-              ))}
-              <Link to="/admission" className="btn" style={{marginTop:12,width:'100%',textAlign:'center',display:'block'}}>Start Free →</Link>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="stats-bar">
+      {/* ─── Stats ─── */}
+      <div className="stats-bar">
         <div className="container stats-grid">
-          {stats.map(s=>(
+          {stats.map(s => (
             <div key={s.l} className="stat-item">
               <div className="stat-val">{s.v}</div>
               <div className="stat-label">{s.l}</div>
             </div>
           ))}
         </div>
+      </div>
+
+      {/* ─── Intro Video ─── */}
+      <section className="section alt-section">
+        <div className="container">
+          <div className="video-section">
+            <div className="video-text">
+              <p className="pre-label">See It for Yourself</p>
+              <h2>Watch How Our Students Transform Their Lives</h2>
+              <p style={{ color: 'var(--muted)', marginTop: '1rem', fontSize: '1rem', lineHeight: 1.75 }}>
+                In this short video, meet real FIBD graduates — a housewife from Barishal, a student from
+                Rajshahi, and a young man from Sylhet — all earning life-changing income online.
+              </p>
+              <ul className="video-bullets">
+                <li>🎬 Full course walkthroughs with instructors</li>
+                <li>📍 Student success stories in their own words</li>
+                <li>💡 Behind-the-scenes of our live class format</li>
+              </ul>
+              <Link to="/success-stories" className="btn btn-outline" style={{ marginTop: '1.5rem' }}>
+                Read All Success Stories →
+              </Link>
+            </div>
+            <div className="video-wrap">
+              <VideoEmbed videoId="ZJthWmvUzzc" title="Freelancing Institute BD — Student Stories" />
+            </div>
+          </div>
+        </div>
       </section>
 
-      {/* Courses preview */}
+      {/* ─── Courses ─── */}
       <section className="section">
         <div className="container">
           <div className="section-head">
@@ -86,25 +181,33 @@ export default function Home() {
             <Link to="/courses" className="btn btn-outline">View All Courses →</Link>
           </div>
           <div className="grid-3">
-            {courses.map(c=>(
-              <div key={c.title} className="card course-card">
-                <div className="course-icon">{c.icon}</div>
-                <h3>{c.title}</h3>
-                <p>{c.desc}</p>
-                <div className="course-meta">{c.weeks}</div>
+            {courses.map(c => (
+              <div key={c.title} className="card course-card-media">
+                <div className="ccm-img-wrap">
+                  <img src={c.img} alt={c.title} className="ccm-img" loading="lazy" />
+                  <span className="ccm-icon">{c.icon}</span>
+                </div>
+                <div className="ccm-body">
+                  <h3>{c.title}</h3>
+                  <p>{c.desc}</p>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 'auto' }}>
+                    <span className="course-meta">{c.weeks}</span>
+                    <Link to="/courses" className="btn btn-ghost btn-sm">Details →</Link>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Why us */}
+      {/* ─── Why Us ─── */}
       <section className="section alt-section">
         <div className="container">
           <p className="pre-label center">Why Choose Us</p>
           <h2 className="center">The Freelancing Institute BD Difference</h2>
-          <div className="grid-3" style={{marginTop:32}}>
-            {why.map(w=>(
+          <div className="grid-3" style={{ marginTop: 32 }}>
+            {why.map(w => (
               <div key={w.t} className="card why-card">
                 <div className="why-icon">{w.icon}</div>
                 <h3>{w.t}</h3>
@@ -115,7 +218,65 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Banner */}
+      {/* ─── Testimonials ─── */}
+      <section className="section">
+        <div className="container">
+          <p className="pre-label center">Student Voices</p>
+          <h2 className="center">What Our Graduates Say</h2>
+          <div className="testimonial-grid">
+            {testimonials.map(t => (
+              <div key={t.name} className="card testimonial-card">
+                <div className="tc-quote">"</div>
+                <p className="tc-text">{t.quote}</p>
+                <div className="tc-person">
+                  <img src={t.img} alt={t.name} className="tc-avatar" loading="lazy" />
+                  <div>
+                    <div className="tc-name">{t.name}</div>
+                    <div className="tc-meta">{t.course} · {t.loc}</div>
+                    <div className="tc-income">{t.income}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="center" style={{ marginTop: '2rem' }}>
+            <Link to="/success-stories" className="btn btn-outline">See All 9 Stories →</Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Recent Blog Posts ─── */}
+      <section className="section alt-section">
+        <div className="container">
+          <div className="section-head">
+            <div>
+              <p className="pre-label">From Our Blog</p>
+              <h2>Freelancing Tips & Guides</h2>
+            </div>
+            <Link to="/blog" className="btn btn-outline">All Articles →</Link>
+          </div>
+          <div className="grid-3">
+            {recentPosts.map(p => (
+              <Link key={p.slug} to={`/blog/${p.slug}`} className="card blog-card-link">
+                <div className="blog-card">
+                  <div className="bc-img-wrap">
+                    <img src={p.img} alt={p.title} className="bc-img" loading="lazy" />
+                    <span className="bc-tag">{p.tag}</span>
+                  </div>
+                  <div className="bc-body">
+                    <div className="bc-date">{p.date}</div>
+                    <h3 className="bc-title">{p.title}</h3>
+                    <p className="bc-excerpt">{p.excerpt}</p>
+                    <span className="bc-read">Read Article →</span>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── CTA Banner ─── */}
       <section className="cta-banner">
         <div className="container center">
           <h2>Ready to Start Your Freelancing Career?</h2>
