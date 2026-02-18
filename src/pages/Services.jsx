@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import VideoCard from '../components/VideoCard'
 import { videos } from '../data/videos'
+import SEO from '../components/SEO'
 
 const services = [
   {
@@ -39,6 +40,11 @@ const process = [
 export default function Services() {
   return (
     <>
+      <SEO
+        title="Freelancing Training Services in Bangladesh — FIBD"
+        description="Comprehensive freelancing services: structured courses, career mentorship, Upwork & Fiverr profile setup, portfolio building, client acquisition support, and corporate training in Bangladesh."
+        canonical="/services"
+      />
       <div className="page-hero alt-section">
         <div className="container center">
           <p className="pre-label">What We Offer</p>

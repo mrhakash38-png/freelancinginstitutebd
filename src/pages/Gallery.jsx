@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import SEO from '../components/SEO'
 
 const albums = [
   {
@@ -64,6 +65,11 @@ export default function Gallery() {
 
   return (
     <>
+      <SEO
+        title="Gallery — Classes, Graduation & Student Life | FIBD"
+        description="Photo gallery of Freelancing Institute BD — live classes, graduation ceremonies, student life, and events. See our vibrant learning community in Dhaka, Bangladesh."
+        canonical="/gallery"
+      />
       <div className="page-hero alt-section">
         <div className="container center">
           <p className="pre-label">Our World in Photos</p>

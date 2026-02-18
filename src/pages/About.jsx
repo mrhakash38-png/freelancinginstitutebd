@@ -3,6 +3,8 @@ import VideoCard from '../components/VideoCard'
 import VideoEmbed from '../components/VideoEmbed'
 import { videos } from '../data/videos'
 import { FacebookPageEmbed, FacebookLikeBtn, FB_URL } from '../components/FacebookWidget'
+import SEO from '../components/SEO'
+import { aboutSchema } from '../data/schemas'
 
 const team = [
   { init: 'R', name: 'Rakibul Hasan', role: 'Founder & CEO', bio: 'Top-rated Upwork freelancer. $200K+ earned. 8 years in digital services.' },
@@ -23,6 +25,12 @@ const milestones = [
 export default function About() {
   return (
     <>
+      <SEO
+        title="About Us — Freelancing Institute BD, Dhaka Bangladesh"
+        description="Learn about Freelancing Institute BD — founded in Dhaka 2019, 5,000+ students trained, led by Top-Rated freelancer Hamidur Rahman. Our mission, vision, team, and story."
+        canonical="/about"
+        schema={aboutSchema}
+      />
       {/* Hero */}
       <div className="page-hero alt-section">
         <div className="container">

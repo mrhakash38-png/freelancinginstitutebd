@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
 import VideoCard from '../components/VideoCard'
 import { videos } from '../data/videos'
+import SEO from '../components/SEO'
+import { successSchema } from '../data/schemas'
 
 const stories = [
   {
@@ -69,6 +71,12 @@ const totals = [
 export default function Success() {
   return (
     <>
+      <SEO
+        title="Student Success Stories — Freelancing Institute BD"
+        description="Read real success stories from 1,500+ graduates of Freelancing Institute BD. Students earning ৳38,000–৳1,20,000/month on Upwork, Fiverr and direct clients."
+        canonical="/success-stories"
+        schema={successSchema}
+      />
       <div className="page-hero alt-section">
         <div className="container center">
           <p className="pre-label">Real Results, Real People</p>

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import SEO from '../components/SEO'
 
 export const posts = [
   {
@@ -201,6 +202,11 @@ export default function Blog() {
 
   return (
     <>
+      <SEO
+        title="Freelancing Blog — Tips, Guides & Career Advice | FIBD"
+        description="Practical freelancing guides for Bangladeshis: how to start on Upwork/Fiverr, top skills in 2026, writing winning proposals, getting paid via Bkash/Payoneer. Updated regularly."
+        canonical="/blog"
+      />
       <div className="page-hero alt-section">
         <div className="container center">
           <p className="pre-label">Knowledge Hub</p>

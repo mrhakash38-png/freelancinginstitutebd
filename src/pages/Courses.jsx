@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
 import VideoCard from '../components/VideoCard'
 import { videos } from '../data/videos'
+import SEO from '../components/SEO'
+import { coursesSchema } from '../data/schemas'
 
 const modules = [
   {
@@ -88,6 +90,12 @@ const modules = [
 export default function Courses() {
   return (
     <>
+      <SEO
+        title="Freelancing Courses in Bangladesh — Graphic Design, WordPress, Digital Marketing"
+        description="Explore 6 structured freelancing courses in Bangladesh: Graphic Design (৳8,000), WordPress (৳10,000), Digital Marketing (৳7,500), Content Writing, eCommerce & VA. Bangla medium, live classes."
+        canonical="/courses"
+        schema={coursesSchema}
+      />
       <div className="page-hero alt-section">
         <div className="container center">
           <p className="pre-label">Our Curriculum</p>

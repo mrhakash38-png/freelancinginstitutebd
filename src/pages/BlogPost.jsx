@@ -1,5 +1,7 @@
 import { useParams, Link } from 'react-router-dom'
 import { posts } from './Blog'
+import SEO from '../components/SEO'
+import { blogPostSchema } from '../data/schemas'
 
 function renderContent(text) {
   return text.trim().split('\n\n').map((block, i) => {
@@ -26,6 +28,14 @@ export default function BlogPost() {
 
   return (
     <>
+      <SEO
+        title={post.title}
+        description={post.excerpt}
+        canonical={`/blog/${post.slug}`}
+        image={post.img}
+        type="article"
+        schema={blogPostSchema(post)}
+      />
       {/* Hero */}
       <div className="post-hero" style={{ backgroundImage: `url(${post.img})` }}>
         <div className="post-hero-overlay" />

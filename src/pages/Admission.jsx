@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import VideoCard from '../components/VideoCard'
 import { videos } from '../data/videos'
+import SEO from '../components/SEO'
+import { admissionSchema } from '../data/schemas'
 
 const courses = [
   'Professional Graphic Design',
@@ -33,6 +35,12 @@ export default function Admission() {
 
   return (
     <>
+      <SEO
+        title="Admission 2026 — Apply for Freelancing Course in Bangladesh"
+        description="Apply now for 2026 batch enrollment at Freelancing Institute BD. Free counseling, Bangla medium courses starting from ৳4,000. Limited seats per batch. Apply online today."
+        canonical="/admission"
+        schema={admissionSchema}
+      />
       <div className="page-hero alt-section">
         <div className="container center">
           <p className="pre-label">Enroll Today</p>
