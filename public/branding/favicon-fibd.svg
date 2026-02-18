@@ -1,11 +1,25 @@
 <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#0F766E"/>
-      <stop offset="1" stop-color="#0EA5A4"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#6366F1"/>
+      <stop offset="50%" stop-color="#8B5CF6"/>
+      <stop offset="100%" stop-color="#06B6D4"/>
     </linearGradient>
   </defs>
-  <rect width="64" height="64" rx="14" fill="url(#g)"/>
-  <path d="M18 18H47V24H24V30H43V36H24V46H18V18Z" fill="white"/>
-  <path d="M48 18L34 33L48 46" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect width="64" height="64" rx="15" fill="url(#bg)"/>
+  <!-- Upper wing -->
+  <path d="M8 26 C18 12 34 10 44 18 C36 18 28 20 24 26 Z" fill="white"/>
+  <path d="M8 26 C4 20 1 22 3 28 C6 26 8 26 8 26 Z" fill="white" opacity="0.7"/>
+  <!-- Body -->
+  <ellipse cx="33" cy="34" rx="9" ry="6" fill="white"/>
+  <!-- Head -->
+  <circle cx="42" cy="27" r="6" fill="white"/>
+  <!-- Beak -->
+  <path d="M48 26 L56 29 L48 31 Z" fill="#FCD34D"/>
+  <!-- Eye -->
+  <circle cx="44" cy="26" r="1.8" fill="#312E81"/>
+  <!-- Lower wing -->
+  <path d="M30 38 C20 48 8 50 5 46 C13 42 23 38 28 33 Z" fill="white" opacity="0.7"/>
+  <!-- Tail -->
+  <path d="M23 36 C14 33 6 40 9 46 C13 40 19 38 25 42 Z" fill="white" opacity="0.85"/>
 </svg>

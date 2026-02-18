@@ -1,0 +1,21 @@
+<svg width="300" height="60" viewBox="0 0 300 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="birdW" x1="0" y1="0" x2="54" y2="54" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#c7d2fe"/>
+    </linearGradient>
+  </defs>
+  <path d="M8 22 C18 8 34 6 44 14 C36 14 28 16 24 22 Z" fill="url(#birdW)"/>
+  <path d="M8 22 C4 16 0 18 2 24 C6 22 8 22 8 22 Z" fill="white" opacity="0.7"/>
+  <ellipse cx="33" cy="30" rx="10" ry="6.5" fill="url(#birdW)"/>
+  <circle cx="42" cy="24" r="6" fill="url(#birdW)"/>
+  <path d="M48 23 L56 26 L48 28 Z" fill="#FCD34D"/>
+  <circle cx="44" cy="23" r="1.8" fill="rgba(255,255,255,0.3)"/>
+  <circle cx="44.5" cy="23" r="0.9" fill="#312E81"/>
+  <path d="M30 34 C20 44 8 48 4 44 C12 40 22 36 28 30 Z" fill="white" opacity="0.6"/>
+  <path d="M23 32 C14 30 6 36 8 42 C13 36 19 34 25 38 Z" fill="white" opacity="0.75"/>
+  <path d="M20 35 C12 34 5 42 8 46 C12 39 18 37 23 42 Z" fill="white" opacity="0.5"/>
+  <text x="68" y="26" fill="white" font-size="20" font-family="'Inter','Segoe UI',Arial,sans-serif" font-weight="800" letter-spacing="-0.5">Freelancing</text>
+  <text x="68" y="47" fill="#c7d2fe" font-size="13" font-family="'Inter','Segoe UI',Arial,sans-serif" font-weight="700" letter-spacing="2.5">INSTITUTE BD</text>
+  <rect x="68" y="51" width="175" height="2.5" rx="1.25" fill="white" opacity="0.25"/>
+</svg>
