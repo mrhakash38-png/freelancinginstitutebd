@@ -1,6 +1,6 @@
 import { FB_URL } from './FacebookWidget'
 
-const WA_URL = 'https://wa.me/8801700000000?text=Hi%2C%20I%20want%20to%20know%20more%20about%20Freelancing%20Institute%20BD%20courses.'
+const WA_URL = 'https://wa.me/8801710001100?text=Hi%2C%20I%20want%20to%20know%20more%20about%20Freelancing%20Institute%20BD%20courses.'
 
 export default function FloatingSocial() {
   return (

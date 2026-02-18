@@ -10,12 +10,12 @@ export const orgSchema = {
   description: "Bangladesh's most trusted freelancing training institute offering courses in Graphic Design, WordPress, Digital Marketing, Content Writing, eCommerce, and Virtual Assistant work.",
   address: {
     '@type': 'PostalAddress',
-    addressLocality: 'Dhaka',
+    addressLocality: 'Tangail, Dhaka',
     addressCountry: 'BD',
   },
   contactPoint: {
     '@type': 'ContactPoint',
-    telephone: '+880-1700-000000',
+    telephone: '+880-1710-001100',
     contactType: 'customer service',
     availableLanguage: ['Bangla', 'English'],
   },
@@ -104,7 +104,7 @@ export const admissionSchema = {
   '@type': 'FAQPage',
   mainEntity: [
     { '@type': 'Question', name: 'Do I need prior experience to join?', acceptedAnswer: { '@type': 'Answer', text: 'No. All our courses start from absolute zero. We assume no prior knowledge.' } },
-    { '@type': 'Question', name: 'Are classes online or in-person?', acceptedAnswer: { '@type': 'Answer', text: 'Both options available. Live online via Zoom plus optional in-person sessions at our Dhaka center.' } },
+    { '@type': 'Question', name: 'Are classes online or in-person?', acceptedAnswer: { '@type': 'Answer', text: 'Both options available. Live online via Zoom plus optional in-person sessions at our Tangail, Dhaka center.' } },
     { '@type': 'Question', name: 'When does the next batch start?', acceptedAnswer: { '@type': 'Answer', text: 'New batches start every month. Apply now to reserve your seat.' } },
     { '@type': 'Question', name: 'Will I get a certificate?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Upon successful completion you receive a verified certificate from Freelancing Institute BD.' } },
     { '@type': 'Question', name: 'What if I miss a class?', acceptedAnswer: { '@type': 'Answer', text: 'All live classes are recorded and available in your student portal for 1 year.' } },
