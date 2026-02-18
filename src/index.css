@@ -1308,3 +1308,120 @@ textarea { resize: vertical; min-height: 80px; }
 @media (max-width: 480px) {
   .video-hub-grid { grid-template-columns: 1fr; }
 }
+
+/* ─── Floating Social Bar ─── */
+.float-social {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.float-btn {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  overflow: hidden;
+  width: 44px;
+  height: 44px;
+  border-radius: 8px 0 0 8px;
+  text-decoration: none;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: white;
+  transition: width 0.25s cubic-bezier(0.4,0,0.2,1), box-shadow 0.2s;
+  white-space: nowrap;
+  padding: 0 12px;
+  justify-content: center;
+  box-shadow: -2px 2px 12px rgba(0,0,0,0.15);
+}
+.float-btn:hover {
+  width: 140px;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  box-shadow: -4px 2px 20px rgba(0,0,0,0.2);
+}
+.float-label { opacity: 0; transition: opacity 0.15s 0.1s; }
+.float-btn:hover .float-label { opacity: 1; }
+
+.float-fb  { background: #1877F2; }
+.float-fb:hover  { background: #166fe5; color:white; }
+.float-wa  { background: #25D366; }
+.float-wa:hover  { background: #20c25e; color:white; }
+.float-msg { background: linear-gradient(135deg, #0084FF, #A033FF); }
+.float-msg:hover { color:white; }
+
+/* ─── Trainer Profile Card ─── */
+.trainer-social-grid {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.trainer-profile-card {
+  padding: 2rem;
+  text-align: center;
+}
+.tpc-avatar {
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  background: var(--grad-brand);
+  display: grid; place-items: center;
+  margin: 0 auto 1rem;
+  font-size: 1.8rem; font-weight: 900; color: white;
+  box-shadow: 0 4px 20px rgba(99,102,241,0.35);
+}
+.trainer-profile-card h3 { font-size: 1.3rem; margin-bottom: 0.2rem; }
+.tpc-title { font-size: 0.82rem; color: var(--indigo-500); font-weight: 700; margin-bottom: 0.75rem; }
+.tpc-bio { font-size: 0.88rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.25rem; }
+
+.tpc-stats {
+  display: flex; justify-content: center; gap: 1.5rem;
+  padding: 1rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  margin-bottom: 1.25rem;
+}
+.tpc-sv { font-size: 1.2rem; font-weight: 900; color: var(--text); }
+.tpc-sl { font-size: 0.72rem; color: var(--muted); font-weight: 600; margin-top: 0.1rem; }
+
+.tpc-links { display: flex; flex-direction: column; gap: 0.6rem; }
+
+.tpc-fb-btn {
+  background: #1877F2 !important;
+  box-shadow: 0 4px 14px rgba(24,119,242,0.35) !important;
+  display: flex; align-items: center; gap: 0.5rem; justify-content: center;
+}
+.tpc-fb-btn:hover { background: #166fe5 !important; color: white; }
+
+.tpc-yt-btn {
+  display: flex; align-items: center; gap: 0.5rem; justify-content: center;
+}
+.tpc-msg-btn {
+  display: flex; align-items: center; gap: 0.5rem; justify-content: center;
+  color: #0084FF; border-color: #A0C4FF;
+}
+
+.fb-page-wrap { border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--shadow-lg); }
+
+/* ─── Facebook follow section (Videos page) ─── */
+.fb-follow-grid {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 3rem;
+  align-items: center;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 900px) {
+  .trainer-social-grid,
+  .fb-follow-grid { grid-template-columns: 1fr; }
+
+  .float-social { top: auto; bottom: 0; transform: none; flex-direction: row; right: auto; left: 0; right: 0; justify-content: center; padding: 0.4rem; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-top: 1px solid var(--border); box-shadow: 0 -2px 20px rgba(0,0,0,0.08); }
+  .float-btn { border-radius: 8px; width: auto; height: 40px; padding: 0 14px; gap: 0.5rem; }
+  .float-btn:hover { width: auto; }
+  .float-label { opacity: 1; font-size: 0.75rem; }
+}
