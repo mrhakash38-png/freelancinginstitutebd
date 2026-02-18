@@ -39,7 +39,9 @@ function App() {
     <div className="site">
       <header className="topbar">
         <div className="container nav">
-          <h1 className="logo">Freelancing Institute BD</h1>
+          <a href="/" className="logo-wrap" aria-label="Freelancing Institute BD home">
+            <img src="/branding/logo-fibd.svg" alt="Freelancing Institute BD" className="logo-image" />
+          </a>
           <a className="btn btn-sm" href="#admission">Apply Now</a>
         </div>
       </header>
