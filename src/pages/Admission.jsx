@@ -30,6 +30,7 @@ export default function Admission() {
   const [form, setForm] = useState({ name: '', phone: '', email: '', course: '', experience: '', message: '' })
 
   const webhookUrl = import.meta.env.VITE_ADMISSION_WEBHOOK_URL
+  const whatsappNumber = '8801710001100'
 
   function handle(e) {
     setForm((f) => ({ ...f, [e.target.name]: e.target.value }))
@@ -40,7 +41,18 @@ export default function Admission() {
     setError('')
 
     if (!webhookUrl) {
-      setError('Admission endpoint is not configured yet. Please set VITE_ADMISSION_WEBHOOK_URL.')
+      const text = [
+        'Hi, I want to apply for admission.',
+        `Name: ${form.name}`,
+        `Phone: ${form.phone}`,
+        form.email ? `Email: ${form.email}` : '',
+        `Course: ${form.course}`,
+        form.experience ? `Experience: ${form.experience}` : '',
+        form.message ? `Message: ${form.message}` : '',
+      ].filter(Boolean).join('\n')
+
+      window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer')
+      setSubmitted(true)
       return
     }
 
@@ -95,7 +107,7 @@ export default function Admission() {
                 <h2>Application Received!</h2>
                 <p>Thank you, <strong>{form.name}</strong>! Our team will call you at <strong>{form.phone}</strong> within 24 hours for your free counseling session.</p>
                 <p style={{color:'var(--muted)'}}>In the meantime, join our WhatsApp community for updates.</p>
-                <a href="https://wa.me/8801710001100" className="btn" target="_blank" rel="noreferrer">Join WhatsApp Group</a>
+                <a href={`https://wa.me/${whatsappNumber}`} className="btn" target="_blank" rel="noreferrer">Join WhatsApp Group</a>
               </div>
             ) : (
               <form className="card admission-form" onSubmit={submit}>
@@ -158,7 +170,7 @@ export default function Admission() {
             </div>
             <div className="card adm-info">
               <h3>📞 Contact Directly</h3>
-              <p>📱 WhatsApp: <a href="https://wa.me/8801710001100">01710-001100</a></p>
+              <p>📱 WhatsApp: <a href={`https://wa.me/${whatsappNumber}`}>01710-001100</a></p>
               <p>📧 Email: <a href="mailto:hello@freelancinginstitutebd.com">hello@freelancinginstitutebd.com</a></p>
               <p>🕒 Office: Sat–Thu, 9am–8pm</p>
             </div>
