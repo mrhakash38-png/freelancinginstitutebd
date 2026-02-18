@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router-dom'
-import { posts } from './Blog'
+import { posts } from '../data/posts'
 import SEO from '../components/SEO'
 import { blogPostSchema } from '../data/schemas'
 

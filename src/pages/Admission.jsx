@@ -25,12 +25,48 @@ const faqs = [
 
 export default function Admission() {
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState('')
   const [form, setForm] = useState({ name: '', phone: '', email: '', course: '', experience: '', message: '' })
 
-  function handle(e) { setForm(f => ({ ...f, [e.target.name]: e.target.value })) }
-  function submit(e) {
+  const webhookUrl = import.meta.env.VITE_ADMISSION_WEBHOOK_URL
+
+  function handle(e) {
+    setForm((f) => ({ ...f, [e.target.name]: e.target.value }))
+  }
+
+  async function submit(e) {
     e.preventDefault()
-    setSubmitted(true)
+    setError('')
+
+    if (!webhookUrl) {
+      setError('Admission endpoint is not configured yet. Please set VITE_ADMISSION_WEBHOOK_URL.')
+      return
+    }
+
+    try {
+      setSubmitting(true)
+      const payload = {
+        ...form,
+        source: 'website-admission-form',
+        submittedAt: new Date().toISOString(),
+        page: '/admission',
+      }
+
+      const res = await fetch(webhookUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      })
+
+      if (!res.ok) throw new Error(`Submission failed with status ${res.status}`)
+      setSubmitted(true)
+    } catch (err) {
+      setError('Could not submit right now. Please try again or contact us on WhatsApp.')
+      console.error(err)
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
@@ -99,7 +135,12 @@ export default function Admission() {
                   <label>Anything else you'd like us to know?</label>
                   <textarea name="message" rows={3} placeholder="Goals, questions, schedule preference..." value={form.message} onChange={handle}/>
                 </div>
-                <button type="submit" className="btn btn-lg" style={{width:'100%'}}>Submit Application</button>
+                {error && (
+                  <p style={{ color: '#dc2626', fontSize: '.9rem', marginBottom: 10 }}>{error}</p>
+                )}
+                <button type="submit" className="btn btn-lg" style={{width:'100%'}} disabled={submitting}>
+                  {submitting ? 'Submitting...' : 'Submit Application'}
+                </button>
                 <p style={{textAlign:'center',color:'var(--muted)',fontSize:'.85rem',marginTop:8}}>We never spam. Your info stays private.</p>
               </form>
             )}

@@ -1,16 +1,63 @@
-# React + Vite
+# freelancinginstitutebd.com
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Production website for **Freelancing Institute BD**.
 
-Currently, two official plugins are available:
+## Stack
+- React 19
+- Vite 7
+- React Router 7
+- react-helmet-async (SEO/meta)
+- Vercel deployment
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Local development
+```bash
+npm install
+npm run dev
+```
 
-## React Compiler
+Build and preview:
+```bash
+npm run build
+npm run preview
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Lint:
+```bash
+npm run lint
+```
 
-## Expanding the ESLint configuration
+## Environment variables
+Create `.env` (or set in Vercel project settings):
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+VITE_ADMISSION_WEBHOOK_URL=https://your-webhook-endpoint
+```
+
+### Admission form behavior
+- Form submission is sent as JSON `POST` to `VITE_ADMISSION_WEBHOOK_URL`.
+- If this env var is missing, the form will show a configuration error instead of fake success.
+
+Payload example:
+```json
+{
+  "name": "...",
+  "phone": "...",
+  "email": "...",
+  "course": "...",
+  "experience": "...",
+  "message": "...",
+  "source": "website-admission-form",
+  "submittedAt": "2026-02-18T00:00:00.000Z",
+  "page": "/admission"
+}
+```
+
+## Deployment
+- Connected Vercel project: `freelancinginstitutebd`
+- Domain: `https://freelancinginstitutebd.com`
+- `www` is redirected to apex via `vercel.json`
+
+## Important maintenance notes
+1. Replace placeholder contact values (phone/WhatsApp) with real production numbers everywhere.
+2. Keep `public/sitemap.xml` updated when routes change.
+3. Keep structured data in `src/data/schemas.js` aligned with real business information.

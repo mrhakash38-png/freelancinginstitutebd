@@ -141,7 +141,7 @@ export default function Courses() {
       <section className="section">
         <div className="container">
           <div className="courses-list">
-            {modules.map((m, i) => (
+            {modules.map((m) => (
               <div key={m.title} className="card course-detail">
                 <div className="cd-header">
                   <div>
