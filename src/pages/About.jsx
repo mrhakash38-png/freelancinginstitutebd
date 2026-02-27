@@ -6,6 +6,7 @@ import { breadcrumbSchema } from '../data/schemas'
 import { seoPages } from '../data/seo-config'
 import { FacebookPageEmbed, FacebookLikeBtn, FB_URL } from '../components/FacebookWidget'
 import AdvancedSEO from '../components/AdvancedSEO'
+import Breadcrumb from '../components/Breadcrumb'
 import { aboutSchema } from '../data/schemas'
 
 const team = [
@@ -32,21 +33,26 @@ export default function About() {
         description={seoPages.about.description}
         canonical={seoPages.about.canonical}
         keywords={seoPages.about.keywords}
-        schema={aboutSchema}
+        schema={[breadcrumbSchema([
+          { name: 'Home', url: '/' },
+          { name: 'About', url: '/about/' },
+        ]), aboutSchema]}
       />
       {/* Hero */}
       <div className="page-hero alt-section">
         <div className="container">
+          <Breadcrumb items={[
+            { name: 'Home', url: '/' },
+            { name: 'About' },
+          ]} />
           <div className="about-hero-grid">
             <div>
               <p className="pre-label">Our Story</p>
               <h1>We teach people to fly — financially.</h1>
               <p className="lead" style={{marginTop:'1rem'}}>
-                Freelancing Institute BD was born out of a simple frustration: Bangladesh has millions of
-                talented people, but most never reach international clients. We bridge that gap —
-                with practical training, real mentorship, and unwavering community support.
+                Founded in 2019 by <strong>Hamidur Rahman</strong> — a Top Rated Upwork freelancer with years of marketplace experience — Freelancing Institute BD bridges the gap between Bangladeshi talent and international clients with practical training, real mentorship, and unwavering community support. We've trained over <strong>5,000 students</strong> in high-demand skills like <Link to="/courses/" style={{color:'var(--primary)'}}>graphic design, web development, and digital marketing</Link>. Read <Link to="/success-stories/" style={{color:'var(--primary)'}}>student success stories</Link> or learn about our <Link to="/services/" style={{color:'var(--primary)'}}>training services</Link>.
               </p>
-              <Link to="/admission" className="btn btn-lg" style={{marginTop:'1.8rem'}}>Join Our Family →</Link>
+              <Link to="/admission/" className="btn btn-lg" style={{marginTop:'1.8rem'}}>Join Our Family →</Link>
             </div>
             <div className="about-stat-grid">
               {[
@@ -65,8 +71,27 @@ export default function About() {
         </div>
       </div>
 
-      {/* Mission Vision Goal */}
+      {/* Founder Story */}
       <section className="section">
+        <div className="container">
+          <div style={{ maxWidth: '75ch', margin: '0 auto' }}>
+            <p className="pre-label center">The Story Behind FIBD</p>
+            <h2 style={{ textAlign: 'center', marginBottom: '1.5rem' }}>From Struggling Freelancer to Training 5,000+ Students</h2>
+            <p style={{ fontSize: '1.05rem', lineHeight: 1.8, color: 'var(--text-2)', marginBottom: '1.25rem' }}>
+              <strong>Hamidur Rahman</strong> started his freelancing journey in 2015 with nothing but a borrowed laptop and a dream to escape the traditional 9-to-5 grind. After months of rejections, failed proposals, and sleepless nights learning graphic design and digital marketing, he finally landed his first $50 project on Upwork.
+            </p>
+            <p style={{ fontSize: '1.05rem', lineHeight: 1.8, color: 'var(--text-2)', marginBottom: '1.25rem' }}>
+              That small win changed everything. Within 2 years, he reached <strong>Top Rated status</strong> on Upwork, built a client base across 15+ countries, and was earning more than most corporate professionals in Bangladesh. But he noticed something: thousands of talented Bangladeshis were struggling with the same problems he faced — no guidance, no mentorship, and no practical marketplace training.
+            </p>
+            <p style={{ fontSize: '1.05rem', lineHeight: 1.8, color: 'var(--text-2)', marginBottom: '1.25rem' }}>
+              In <strong>2019</strong>, Hamidur founded <strong>Freelancing Institute Bangladesh</strong> with a simple mission: train Bangladeshis not just to learn skills, but to <em>earn</em> from them. No fluff. No theory-heavy courses. Just practical, marketplace-ready training taught by freelancers who are actively earning. Today, FIBD has trained over 5,000 students, with 1,500+ graduates earning ৳38K–৳1.2L per month. Explore our <Link to="/courses/" style={{color:'var(--primary)'}}>proven courses</Link> or <Link to="/admission/" style={{color:'var(--primary)'}}>apply for admission</Link>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Mission Vision Goal */}
+      <section className="section alt-section">
         <div className="container">
           <p className="pre-label center">Our Purpose</p>
           <h2 className="center">Mission, Vision & Goal</h2>
@@ -127,8 +152,8 @@ export default function About() {
                 him to train the next generation of Bangladeshi freelancers.
               </p>
               <div style={{ display: 'flex', gap: '0.75rem', marginTop: '1.5rem', flexWrap: 'wrap' }}>
-                <Link to="/videos" className="btn btn-outline">Watch All Free Videos →</Link>
-                <Link to="/admission" className="btn">Join a Batch →</Link>
+                <Link to="/videos/" className="btn btn-outline">Watch All Free Videos →</Link>
+                <Link to="/admission/" className="btn">Join a Batch →</Link>
               </div>
             </div>
             <div className="video-wrap">
@@ -255,7 +280,7 @@ export default function About() {
         <div className="container center">
           <h2>Become Part of Our Story</h2>
           <p>Join thousands of students who chose to invest in themselves.</p>
-          <Link to="/admission" className="btn btn-lg btn-gold">Apply Today — Free Consultation</Link>
+          <Link to="/admission/" className="btn btn-lg btn-gold">Apply Today — Free Consultation</Link>
         </div>
       </section>
     </>

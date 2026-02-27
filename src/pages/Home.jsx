@@ -121,11 +121,11 @@ export default function Home() {
             <h1>Fly High. Earn Free.<br /><span className="grad-text">Start Freelancing Today.</span></h1>
             <p className="lead">
               Bangladesh's most trusted freelancing institute — practical skills, live mentorship,
-              and real marketplace experience to land your first paying client.
+              and real marketplace experience to land your first paying client. Whether you want to learn <Link to="/courses/" style={{color:'var(--primary)', textDecoration:'underline'}}>graphic design, web development, or digital marketing</Link>, we guide you from beginner to earning freelancer.
             </p>
             <div className="cta-row">
-              <Link to="/admission" className="btn btn-lg">Apply Now — Free Counseling</Link>
-              <Link to="/courses" className="btn btn-outline btn-lg">Browse Courses</Link>
+              <Link to="/admission/" className="btn btn-lg">Apply Now — Free Counseling</Link>
+              <Link to="/courses/" className="btn btn-outline btn-lg">Browse Courses</Link>
             </div>
             <div className="trust-row">
               <span>✅ No experience needed</span>
@@ -146,7 +146,7 @@ export default function Home() {
             <div className="hero-img-card">
               <img
                 src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=700&q=80"
-                alt="Students learning freelancing"
+                alt="Students learning freelancing skills at Freelancing Institute Bangladesh - online training and live classes"
                 className="hero-img"
               />
               <div className="hero-img-badge">
@@ -173,6 +173,24 @@ export default function Home() {
         </div>
       </div>
 
+      {/* ─── Intro Section ─── */}
+      <section className="section">
+        <div className="container">
+          <div style={{ maxWidth: '90ch', margin: '0 auto' }}>
+            <h2 style={{ textAlign: 'center', marginBottom: '1.5rem' }}>Learn Freelancing Skills That Pay — From Bangladesh's Leading Institute</h2>
+            <p style={{ fontSize: '1.05rem', lineHeight: 1.8, color: 'var(--text-2)', marginBottom: '1.25rem' }}>
+              <strong>Freelancing Institute Bangladesh (FIBD)</strong> is the country's most trusted platform for freelancing training and career development. Since 2019, we've trained over <strong>5,000 students</strong> in high-demand digital skills — from <Link to="/courses/" style={{color:'var(--primary)'}}>graphic design and WordPress development</Link> to <Link to="/courses/" style={{color:'var(--primary)'}}>digital marketing and content writing</Link>.
+            </p>
+            <p style={{ fontSize: '1.05rem', lineHeight: 1.8, color: 'var(--text-2)', marginBottom: '1.25rem' }}>
+              Unlike traditional courses, we focus on <strong>marketplace-ready skills</strong>. Our students don't just learn — they <Link to="/success-stories/" style={{color:'var(--primary)'}}>earn real income on platforms like Upwork and Fiverr</Link>, with 1,500+ graduates actively making ৳38,000–৳1,20,000 per month.
+            </p>
+            <p style={{ fontSize: '1.05rem', lineHeight: 1.8, color: 'var(--text-2)', marginBottom: '1.25rem' }}>
+              Whether you're a complete beginner or want to upgrade your existing skills, our <Link to="/services/" style={{color:'var(--primary)'}}>training programs and mentorship services</Link> will guide you step-by-step — from first lesson to first client. <Link to="/admission/" style={{color:'var(--primary)', fontWeight:700}}>Apply today for free counseling</Link> and discover which course fits your goals.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* ─── Intro Video ─── */}
       <section className="section alt-section">
         <div className="container">
@@ -191,8 +209,8 @@ export default function Home() {
                 <li>💡 How to pick the right niche for you</li>
               </ul>
               <div style={{ display: 'flex', gap: '0.75rem', marginTop: '1.5rem', flexWrap: 'wrap' }}>
-                <Link to="/videos" className="btn btn-outline">Watch All Free Videos →</Link>
-                <Link to="/success-stories" className="btn btn-ghost">Student Stories →</Link>
+                <Link to="/videos/" className="btn btn-outline">Watch All Free Videos →</Link>
+                <Link to="/success-stories/" className="btn btn-ghost">Student Stories →</Link>
               </div>
             </div>
             <div className="video-wrap">
@@ -210,7 +228,7 @@ export default function Home() {
               <p className="pre-label">Proof It Works</p>
               <h2>Student Earnings — In Their Own Words</h2>
             </div>
-            <Link to="/videos" className="btn btn-outline">All Videos →</Link>
+            <Link to="/videos/" className="btn btn-outline">All Videos →</Link>
           </div>
           <div className="grid-3">
             {videos.successStories.slice(0, 3).map(v => (
@@ -228,7 +246,7 @@ export default function Home() {
               <p className="pre-label">What We Teach</p>
               <h2>Popular Course Tracks</h2>
             </div>
-            <Link to="/courses" className="btn btn-outline">View All Courses →</Link>
+            <Link to="/courses/" className="btn btn-outline">View All Courses →</Link>
           </div>
           <div className="grid-3">
             {courses.map(c => (
@@ -242,7 +260,7 @@ export default function Home() {
                   <p>{c.desc}</p>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 'auto' }}>
                     <span className="course-meta">{c.weeks}</span>
-                    <Link to="/courses" className="btn btn-ghost btn-sm">Details →</Link>
+                    <Link to="/courses/" className="btn btn-ghost btn-sm">Details →</Link>
                   </div>
                 </div>
               </div>
@@ -256,6 +274,9 @@ export default function Home() {
         <div className="container">
           <p className="pre-label center">Why Choose Us</p>
           <h2 className="center">The Freelancing Institute BD Difference</h2>
+          <p className="lead center" style={{ margin: '0.75rem auto 2.5rem', maxWidth: '75ch' }}>
+            We're not just another online course. We're a complete freelancing career solution — from beginner training to marketplace success. Here's what sets us apart from other institutes in Bangladesh.
+          </p>
           <div className="grid-3" style={{ marginTop: 32 }}>
             {why.map(w => (
               <div key={w.t} className="card why-card">
@@ -264,6 +285,10 @@ export default function Home() {
                 <p>{w.d}</p>
               </div>
             ))}
+          </div>
+          <div style={{ textAlign: 'center', marginTop: '2.5rem' }}>
+            <Link to="/about/" className="btn btn-outline">Learn More About FIBD →</Link>
+            <Link to="/admission/" className="btn" style={{ marginLeft: '0.75rem' }}>Start Your Journey →</Link>
           </div>
         </div>
       </section>
@@ -290,7 +315,7 @@ export default function Home() {
             ))}
           </div>
           <div className="center" style={{ marginTop: '2rem' }}>
-            <Link to="/success-stories" className="btn btn-outline">See All 9 Stories →</Link>
+            <Link to="/success-stories/" className="btn btn-outline">See All 9 Stories →</Link>
           </div>
         </div>
       </section>
@@ -303,7 +328,7 @@ export default function Home() {
               <p className="pre-label">From Our Blog</p>
               <h2>Freelancing Tips & Guides</h2>
             </div>
-            <Link to="/blog" className="btn btn-outline">All Articles →</Link>
+            <Link to="/blog/" className="btn btn-outline">All Articles →</Link>
           </div>
           <div className="grid-3">
             {recentPosts.map(p => (
@@ -326,12 +351,58 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ─── FAQ Section ─── */}
+      <section className="section">
+        <div className="container">
+          <p className="pre-label center">Common Questions</p>
+          <h2 className="center">Freelancing Institute BD — FAQ</h2>
+          <div style={{ maxWidth: '75ch', margin: '2.5rem auto 0' }}>
+            <div className="card" style={{ padding: '1.5rem', marginBottom: '1.25rem' }}>
+              <h3 style={{ fontSize: '1.1rem', marginBottom: '0.75rem' }}>Do I need any prior experience to join?</h3>
+              <p style={{ color: 'var(--text-2)', margin: 0 }}>
+                No! All our <Link to="/courses/" style={{color:'var(--primary)'}}>freelancing courses</Link> start from absolute beginner level. We assume zero prior knowledge and build you up from the basics to marketplace-ready professional.
+              </p>
+            </div>
+            <div className="card" style={{ padding: '1.5rem', marginBottom: '1.25rem' }}>
+              <h3 style={{ fontSize: '1.1rem', marginBottom: '0.75rem' }}>Which course should I choose?</h3>
+              <p style={{ color: 'var(--text-2)', margin: 0 }}>
+                It depends on your interests and goals. Our most popular courses are <Link to="/courses/" style={{color:'var(--primary)'}}>Graphic Design, WordPress Development, and Digital Marketing</Link>. <Link to="/admission/" style={{color:'var(--primary)'}}>Book a free counseling session</Link> and we'll help you pick the right path.
+              </p>
+            </div>
+            <div className="card" style={{ padding: '1.5rem', marginBottom: '1.25rem' }}>
+              <h3 style={{ fontSize: '1.1rem', marginBottom: '0.75rem' }}>How long does it take to start earning?</h3>
+              <p style={{ color: 'var(--text-2)', margin: 0 }}>
+                On average, students land their first paying client within 3–6 months of completing the course. Check out our <Link to="/success-stories/" style={{color:'var(--primary)'}}>student success stories</Link> to see real timelines and earnings.
+              </p>
+            </div>
+            <div className="card" style={{ padding: '1.5rem', marginBottom: '1.25rem' }}>
+              <h3 style={{ fontSize: '1.1rem', marginBottom: '0.75rem' }}>Are classes in Bangla or English?</h3>
+              <p style={{ color: 'var(--text-2)', margin: 0 }}>
+                All instruction is in <strong>Bangla</strong>. We believe you learn faster in your native language. Technical terms are explained in both Bangla and English so you're prepared for international clients.
+              </p>
+            </div>
+            <div className="card" style={{ padding: '1.5rem', marginBottom: '1.25rem' }}>
+              <h3 style={{ fontSize: '1.1rem', marginBottom: '0.75rem' }}>What support do I get after completing the course?</h3>
+              <p style={{ color: 'var(--text-2)', margin: 0 }}>
+                Lifetime support! You get access to our alumni WhatsApp group, monthly Q&A sessions, portfolio reviews, and <Link to="/services/" style={{color:'var(--primary)'}}>ongoing mentorship</Link> even after graduation. We don't abandon you after the course ends.
+              </p>
+            </div>
+            <div className="card" style={{ padding: '1.5rem', marginBottom: '1.25rem' }}>
+              <h3 style={{ fontSize: '1.1rem', marginBottom: '0.75rem' }}>How much does it cost?</h3>
+              <p style={{ color: 'var(--text-2)', margin: 0 }}>
+                Course fees range from ৳4,000 to ৳10,000 depending on the program. We also offer installment options. View full pricing on our <Link to="/courses/" style={{color:'var(--primary)'}}>courses page</Link> or <Link to="/admission/" style={{color:'var(--primary)'}}>contact us for details</Link>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ─── CTA Banner ─── */}
       <section className="cta-banner">
         <div className="container center">
           <h2>Ready to Start Your Freelancing Career?</h2>
           <p>Join 5,000+ students already on their journey to financial freedom.</p>
-          <Link to="/admission" className="btn btn-lg btn-gold">Apply Now — It's Free to Consult</Link>
+          <Link to="/admission/" className="btn btn-lg btn-gold">Apply Now — It's Free to Consult</Link>
         </div>
       </section>
     </>

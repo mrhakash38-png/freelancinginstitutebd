@@ -22,7 +22,7 @@ export default function BlogPost() {
   if (!post) return (
     <div className="section container center">
       <h2>Article not found</h2>
-      <Link to="/blog" className="btn" style={{ marginTop: '1rem' }}>← Back to Blog</Link>
+      <Link to="/blog/" className="btn" style={{ marginTop: '1rem' }}>← Back to Blog</Link>
     </div>
   )
 
@@ -67,13 +67,46 @@ export default function BlogPost() {
               {post.excerpt}
             </p>
             {renderContent(post.content)}
+            
+            {/* Article CTA */}
+            <div className="card" style={{ padding: '2rem', marginTop: '3rem', background: 'var(--grad-dark)', border: 'none' }}>
+              <h3 style={{ color: 'white', marginBottom: '0.75rem' }}>Ready to Start Your Freelancing Journey?</h3>
+              <p style={{ color: 'rgba(199,210,254,0.75)', marginBottom: '1.5rem' }}>
+                Stop reading and start earning. Join our <Link to="/courses/" style={{color:'#fbbf24', textDecoration:'underline'}}>structured freelancing courses</Link> and learn from active freelancers who are earning $2,000–$5,000/month.
+              </p>
+              <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+                <Link to="/courses/" className="btn btn-gold">Browse Courses</Link>
+                <Link to="/admission/" className="btn btn-outline" style={{ borderColor: 'white', color: 'white' }}>Apply for Free Counseling</Link>
+              </div>
+            </div>
+
+            {/* Related Posts */}
+            <div style={{ marginTop: '3rem' }}>
+              <h3 style={{ marginBottom: '1.5rem' }}>Related Articles</h3>
+              <div className="grid-3" style={{ gap: '1.25rem' }}>
+                {related.map(r => (
+                  <Link key={r.slug} to={`/blog/${r.slug}/`} className="card blog-card-link" style={{ padding: 0 }}>
+                    <div className="blog-card">
+                      <div className="bc-img-wrap">
+                        <img src={r.img} alt={r.title} className="bc-img" loading="lazy" />
+                        <span className="bc-tag">{r.tag}</span>
+                      </div>
+                      <div className="bc-body">
+                        <div className="bc-date">{r.readTime}</div>
+                        <h4 className="bc-title" style={{ fontSize: '0.95rem' }}>{r.title}</h4>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
           </article>
 
           <aside className="post-sidebar">
             <div className="card" style={{ padding: '1.5rem', marginBottom: '1.5rem' }}>
               <h3 style={{ marginBottom: '1rem', fontSize: '1rem' }}>📚 More Articles</h3>
-              {related.map(r => (
-                <Link key={r.slug} to={`/blog/${r.slug}`} style={{ display: 'block', marginBottom: '1rem' }}>
+              {related.slice(0, 3).map(r => (
+                <Link key={r.slug} to={`/blog/${r.slug}/`} style={{ display: 'block', marginBottom: '1rem' }}>
                   <img src={r.img} alt={r.title} style={{ width: '100%', height: 80, objectFit: 'cover', borderRadius: 'var(--r-sm)', marginBottom: '0.4rem' }} loading="lazy" />
                   <div style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--text)', lineHeight: 1.4 }}>{r.title}</div>
                   <div style={{ fontSize: '0.75rem', color: 'var(--muted)', marginTop: '0.2rem' }}>{r.readTime}</div>
@@ -83,7 +116,7 @@ export default function BlogPost() {
             <div className="card" style={{ padding: '1.5rem', background: 'var(--grad-dark)', border: 'none' }}>
               <h3 style={{ color: 'white', marginBottom: '0.5rem', fontSize: '1rem' }}>🚀 Ready to Start?</h3>
               <p style={{ color: 'rgba(199,210,254,0.75)', fontSize: '0.85rem', marginBottom: '1rem' }}>Apply for free counseling and find the right course for your goals.</p>
-              <Link to="/admission" className="btn btn-gold btn-sm" style={{ width: '100%', textAlign: 'center', display: 'block' }}>Apply Now →</Link>
+              <Link to="/admission/" className="btn btn-gold btn-sm" style={{ width: '100%', textAlign: 'center', display: 'block' }}>Apply Now →</Link>
             </div>
           </aside>
         </div>

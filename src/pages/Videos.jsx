@@ -6,6 +6,7 @@ import { breadcrumbSchema } from '../data/schemas'
 import { seoPages } from '../data/seo-config'
 import { FacebookPageEmbed, FB_URL } from '../components/FacebookWidget'
 import AdvancedSEO from '../components/AdvancedSEO'
+import Breadcrumb from '../components/Breadcrumb'
 
 const TAGS = ['All', 'Success Story', 'Student Win', 'Student Earnings', 'Income Proof',
   'Beginner Tips', 'Common Mistakes', 'Advanced Tips', 'Fiverr Guide', 'New Platform',
@@ -24,23 +25,32 @@ export default function Videos() {
         description={seoPages.videos.description}
         canonical={seoPages.videos.canonical}
         keywords={seoPages.videos.keywords}
+        schema={breadcrumbSchema([
+          { name: 'Home', url: '/' },
+          { name: 'Videos', url: '/videos/' },
+        ])}
       />
       <div className="page-hero alt-section">
-        <div className="container center">
-          <p className="pre-label">Our YouTube Channel</p>
-          <h1>Free Video Lessons</h1>
-          <p className="lead" style={{ margin: '0.75rem auto 0' }}>
-            Watch all free lessons from our instructor <strong>Hamidur Rahman</strong> — freelancing tips,
-            full course classes, success stories, and income guides. All in Bangla.
-          </p>
-          <a href={CHANNEL_URL} target="_blank" rel="noreferrer"
-            className="btn btn-outline" style={{ marginTop: '1.5rem', display: 'inline-flex', gap: '0.5rem' }}>
-            <svg width="20" height="14" viewBox="0 0 20 14" fill="none">
-              <path d="M19.6 2.2A2.5 2.5 0 0017.8.4C16.3 0 10 0 10 0S3.7 0 2.2.4A2.5 2.5 0 00.4 2.2C0 3.7 0 7 0 7s0 3.3.4 4.8A2.5 2.5 0 002.2 13.6C3.7 14 10 14 10 14s6.3 0 7.8-.4a2.5 2.5 0 001.8-1.8C20 10.3 20 7 20 7s0-3.3-.4-4.8z" fill="#FF0000"/>
-              <path d="M8 10l5-3-5-3v6z" fill="#fff"/>
-            </svg>
-            Subscribe on YouTube
-          </a>
+        <div className="container">
+          <Breadcrumb items={[
+            { name: 'Home', url: '/' },
+            { name: 'Videos' },
+          ]} />
+          <div className="center">
+            <p className="pre-label">Our YouTube Channel</p>
+            <h1>Free Video Lessons</h1>
+            <p className="lead" style={{ margin: '0.75rem auto 0' }}>
+              30+ free lessons by Hamidur Rahman: freelancing tips, course classes, success stories, income guides. All in Bangla. Explore <Link to="/courses" style={{color:'var(--primary)'}}>paid courses</Link> or <Link to="/admission" style={{color:'var(--primary)'}}>apply now</Link>.
+            </p>
+            <a href={CHANNEL_URL} target="_blank" rel="noreferrer"
+              className="btn btn-outline" style={{ marginTop: '1.5rem', display: 'inline-flex', gap: '0.5rem' }}>
+              <svg width="20" height="14" viewBox="0 0 20 14" fill="none">
+                <path d="M19.6 2.2A2.5 2.5 0 0017.8.4C16.3 0 10 0 10 0S3.7 0 2.2.4A2.5 2.5 0 00.4 2.2C0 3.7 0 7 0 7s0 3.3.4 4.8A2.5 2.5 0 002.2 13.6C3.7 14 10 14 10 14s6.3 0 7.8-.4a2.5 2.5 0 001.8-1.8C20 10.3 20 7 20 7s0-3.3-.4-4.8z" fill="#FF0000"/>
+                <path d="M8 10l5-3-5-3v6z" fill="#fff"/>
+              </svg>
+              Subscribe on YouTube
+            </a>
+          </div>
         </div>
       </div>
 

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import VideoCard from '../components/VideoCard'
 import { videos } from '../data/videos'
 import AdvancedSEO from '../components/AdvancedSEO'
+import Breadcrumb from '../components/Breadcrumb'
 import { breadcrumbSchema } from '../data/schemas'
 import { seoPages } from '../data/seo-config'
 import { successSchema } from '../data/schemas'
@@ -12,6 +13,7 @@ const stories = [
     income: '৳ 85,000/month', platform: 'Fiverr Level 2',
     quote: "I was a rickshaw driver's son with no computer background. After 4 months at FIBD, I'm earning more than my entire family combined. This institute changed my life.",
     stars: 5,
+    details: 'Started with zero skills in 2024. Now runs 3 active Fiverr gigs (logo design, social media graphics, branding). Average order value: $50. Monthly client base: 15-20 repeat clients.',
   },
   {
     init: 'R', name: 'Rina Akter', location: 'Chittagong', course: 'Digital Marketing',
@@ -78,15 +80,24 @@ export default function Success() {
         description={seoPages.success.description}
         canonical={seoPages.success.canonical}
         keywords={seoPages.success.keywords}
-        schema={successSchema}
+        schema={[breadcrumbSchema([
+          { name: 'Home', url: '/' },
+          { name: 'Success Stories', url: '/success-stories/' },
+        ]), successSchema]}
       />
       <div className="page-hero alt-section">
-        <div className="container center">
-          <p className="pre-label">Real Results, Real People</p>
-          <h1>Success Stories</h1>
-          <p className="lead" style={{margin:'0.75rem auto 0'}}>
-            These aren't testimonials we wrote — these are students who trusted the process and transformed their lives.
-          </p>
+        <div className="container">
+          <Breadcrumb items={[
+            { name: 'Home', url: '/' },
+            { name: 'Success Stories' },
+          ]} />
+          <div className="center">
+            <p className="pre-label">Real Results, Real People</p>
+            <h1>Success Stories</h1>
+            <p className="lead" style={{margin:'0.75rem auto 0', maxWidth: '75ch'}}>
+              These aren't testimonials we wrote — these are real students who trusted the process and transformed their lives through <Link to="/courses/" style={{color:'var(--primary)'}}>our freelancing courses</Link>. Real income proof: ৳38,000–৳1,20,000/month on Upwork, Fiverr, and with direct clients. Ready to <Link to="/admission/" style={{color:'var(--primary)'}}>start your journey</Link>?
+            </p>
+          </div>
         </div>
       </div>
 
@@ -139,7 +150,19 @@ export default function Success() {
           {/* Earnings milestone banner */}
           <div className="income-banner">
             <h3>🎉 Combined student earnings exceeded ৳2 Crore/month in 2026</h3>
-            <p>That's real money, in real families, changing real lives — every single month.</p>
+            <p>That's real money, in real families, changing real lives — every single month. Our students work on Upwork, Fiverr, and with direct international clients — earning in dollars while living in Bangladesh.</p>
+          </div>
+
+          {/* Course CTA */}
+          <div style={{ textAlign: 'center', marginTop: '3rem' }}>
+            <h3 style={{ marginBottom: '1rem' }}>Want Similar Results? Start with the Right Course</h3>
+            <p style={{ color: 'var(--text-2)', marginBottom: '1.5rem', maxWidth: '65ch', margin: '0 auto 1.5rem' }}>
+              These students all started as complete beginners. The difference? They enrolled in a <Link to="/courses/" style={{color:'var(--primary)'}}>structured course</Link>, followed the system, and got <Link to="/services/" style={{color:'var(--primary)'}}>ongoing mentorship</Link> until they landed their first client.
+            </p>
+            <div style={{ display: 'flex', gap: '0.75rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <Link to="/courses/" className="btn btn-lg">Browse Courses</Link>
+              <Link to="/admission/" className="btn btn-outline btn-lg">Apply for Free Counseling</Link>
+            </div>
           </div>
         </div>
       </section>
@@ -149,7 +172,7 @@ export default function Success() {
         <div className="container center">
           <h2>Your Success Story Starts Here</h2>
           <p>Join thousands who made the decision to invest in a skill that pays forever.</p>
-          <Link to="/admission" className="btn btn-lg btn-gold">Apply Now — Free Counseling</Link>
+          <Link to="/admission/" className="btn btn-lg btn-gold">Apply Now — Free Counseling</Link>
         </div>
       </section>
     </>

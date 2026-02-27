@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import AdvancedSEO from '../components/AdvancedSEO'
+import Breadcrumb from '../components/Breadcrumb'
 
 import { breadcrumbSchema } from '../data/schemas'
 import { seoPages } from '../data/seo-config'
@@ -72,14 +73,24 @@ export default function Gallery() {
         description={seoPages.gallery.description}
         canonical={seoPages.gallery.canonical}
         keywords={seoPages.gallery.keywords}
+        schema={breadcrumbSchema([
+          { name: 'Home', url: '/' },
+          { name: 'Gallery', url: '/gallery/' },
+        ])}
       />
       <div className="page-hero alt-section">
-        <div className="container center">
-          <p className="pre-label">Our World in Photos</p>
-          <h1>Photo Gallery</h1>
-          <p className="lead" style={{ margin: '0.75rem auto 0' }}>
-            A glimpse into our classrooms, events, and student life at Freelancing Institute BD.
-          </p>
+        <div className="container">
+          <Breadcrumb items={[
+            { name: 'Home', url: '/' },
+            { name: 'Gallery' },
+          ]} />
+          <div className="center">
+            <p className="pre-label">Our World in Photos</p>
+            <h1>Photo Gallery</h1>
+            <p className="lead" style={{ margin: '0.75rem auto 0' }}>
+              Student life, classes, graduation — see the vibrant learning community at Freelancing Institute BD. Watch <Link to="/videos" style={{color:'var(--primary)'}}>free video lessons</Link> or <Link to="/success-stories" style={{color:'var(--primary)'}}>success stories</Link>.
+            </p>
+          </div>
         </div>
       </div>
 

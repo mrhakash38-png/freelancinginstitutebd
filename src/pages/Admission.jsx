@@ -5,6 +5,7 @@ import { videos } from '../data/videos'
 import { breadcrumbSchema } from '../data/schemas'
 import { seoPages } from '../data/seo-config'
 import AdvancedSEO from '../components/AdvancedSEO'
+import Breadcrumb from '../components/Breadcrumb'
 import { admissionSchema } from '../data/schemas'
 
 const courses = [
@@ -90,15 +91,67 @@ export default function Admission() {
         description={seoPages.admission.description}
         canonical={seoPages.admission.canonical}
         keywords={seoPages.admission.keywords}
-        schema={admissionSchema}
+        schema={[breadcrumbSchema([
+          { name: 'Home', url: '/' },
+          { name: 'Admission', url: '/admission/' },
+        ]), admissionSchema]}
       />
       <div className="page-hero alt-section">
-        <div className="container center">
-          <p className="pre-label">Enroll Today</p>
-          <h1>Admission 2026</h1>
-          <p className="lead">Fill in your details below — our team will contact you within 24 hours for free counseling.</p>
+        <div className="container">
+          <Breadcrumb items={[
+            { name: 'Home', url: '/' },
+            { name: 'Admission' },
+          ]} />
+          <div className="center">
+            <p className="pre-label">Enroll Today</p>
+            <h1>Admission 2026</h1>
+            <p className="lead">Fill in your details below — our team will contact you within 24 hours for free counseling. View our <Link to="/courses/" style={{color:'var(--primary)'}}>course details</Link> or <Link to="/success-stories/" style={{color:'var(--primary)'}}>student success stories</Link>.</p>
+          </div>
         </div>
       </div>
+
+      {/* Why Apply Section */}
+      <section className="section">
+        <div className="container">
+          <p className="pre-label center">Why Join FIBD?</p>
+          <h2 className="center">What Makes Our Training Different</h2>
+          <p className="lead center" style={{ margin: '0.75rem auto 2rem', maxWidth: '75ch' }}>
+            We're not just another course platform. We're a complete freelancing career system — from beginner training to your first paying client. Here's what you get when you join FIBD.
+          </p>
+          <div className="grid-3">
+            <div className="card why-card">
+              <div className="why-icon">🎓</div>
+              <h3>Marketplace-Ready Skills</h3>
+              <p>Learn skills that clients actually pay for on Upwork, Fiverr, and LinkedIn. Our <Link to="/courses/" style={{color:'var(--primary)'}}>courses</Link> are designed by active freelancers, not academics.</p>
+            </div>
+            <div className="card why-card">
+              <div className="why-icon">💼</div>
+              <h3>Real Project Experience</h3>
+              <p>Graduate with a portfolio of real work, not just practice files. We assign live projects so you have case studies to show clients from day one.</p>
+            </div>
+            <div className="card why-card">
+              <div className="why-icon">🤝</div>
+              <h3>Lifetime Mentorship</h3>
+              <p>Get support even after graduation. Portfolio reviews, proposal feedback, client acquisition help — for life. Check our <Link to="/success-stories/" style={{color:'var(--primary)'}}>student success stories</Link>.</p>
+            </div>
+            <div className="card why-card">
+              <div className="why-icon">📱</div>
+              <h3>Live + Recorded Classes</h3>
+              <p>Attend live sessions with your batch, then rewatch anytime for 1 year. Perfect for students, working professionals, and homemakers.</p>
+            </div>
+            <div className="card why-card">
+              <div className="why-icon">🇧🇩</div>
+              <h3>Bangla Medium Instruction</h3>
+              <p>Learn in Bangla, earn in dollars. We explain everything in your native language so you learn faster, not slower.</p>
+            </div>
+            <div className="card why-card">
+              <div className="why-icon">💰</div>
+              <h3>Affordable + Installments</h3>
+              <p>Course fees from ৳4,000–৳10,000. Flexible 2-3 installment plans available. Your investment pays back within 1-2 months of freelancing.</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section className="section">
         <div className="container admission-layout">
@@ -192,8 +245,46 @@ export default function Admission() {
         </div>
       </section>
 
-      {/* Course Announcement Videos */}
+      {/* Next Steps Section */}
       <section className="section alt-section">
+        <div className="container">
+          <p className="pre-label center">After You Apply</p>
+          <h2 className="center">Your Next Steps to Becoming a Freelancer</h2>
+          <div style={{ maxWidth: '75ch', margin: '2rem auto 0' }}>
+            <div className="card" style={{ padding: '1.5rem', marginBottom: '1.25rem', display: 'flex', gap: '1.25rem', alignItems: 'flex-start' }}>
+              <div style={{ minWidth: '48px', height: '48px', borderRadius: '50%', background: 'var(--grad-brand)', display: 'grid', placeItems: 'center', color: 'white', fontWeight: 900, fontSize: '1.25rem' }}>1</div>
+              <div>
+                <h3 style={{ marginBottom: '0.5rem', fontSize: '1.1rem' }}>Submit Your Application</h3>
+                <p style={{ color: 'var(--text-2)', margin: 0 }}>Fill in the form above with your details and preferred course. It takes less than 2 minutes.</p>
+              </div>
+            </div>
+            <div className="card" style={{ padding: '1.5rem', marginBottom: '1.25rem', display: 'flex', gap: '1.25rem', alignItems: 'flex-start' }}>
+              <div style={{ minWidth: '48px', height: '48px', borderRadius: '50%', background: 'var(--grad-brand)', display: 'grid', placeItems: 'center', color: 'white', fontWeight: 900, fontSize: '1.25rem' }}>2</div>
+              <div>
+                <h3 style={{ marginBottom: '0.5rem', fontSize: '1.1rem' }}>Free Counseling Call (Within 24 Hours)</h3>
+                <p style={{ color: 'var(--text-2)', margin: 0 }}>Our team will call you to understand your goals, recommend the right <Link to="/courses/" style={{color:'var(--primary)'}}>course track</Link>, and answer all your questions — completely free, no pressure.</p>
+              </div>
+            </div>
+            <div className="card" style={{ padding: '1.5rem', marginBottom: '1.25rem', display: 'flex', gap: '1.25rem', alignItems: 'flex-start' }}>
+              <div style={{ minWidth: '48px', height: '48px', borderRadius: '50%', background: 'var(--grad-brand)', display: 'grid', placeItems: 'center', color: 'white', fontWeight: 900, fontSize: '1.25rem' }}>3</div>
+              <div>
+                <h3 style={{ marginBottom: '0.5rem', fontSize: '1.1rem' }}>Enroll & Get Instant Access</h3>
+                <p style={{ color: 'var(--text-2)', margin: 0 }}>Once you confirm, you'll get access to the student portal, batch WhatsApp group, and pre-course materials to start preparing.</p>
+              </div>
+            </div>
+            <div className="card" style={{ padding: '1.5rem', marginBottom: '1.25rem', display: 'flex', gap: '1.25rem', alignItems: 'flex-start' }}>
+              <div style={{ minWidth: '48px', height: '48px', borderRadius: '50%', background: 'var(--grad-brand)', display: 'grid', placeItems: 'center', color: 'white', fontWeight: 900, fontSize: '1.25rem' }}>4</div>
+              <div>
+                <h3 style={{ marginBottom: '0.5rem', fontSize: '1.1rem' }}>Start Learning & Building Your Portfolio</h3>
+                <p style={{ color: 'var(--text-2)', margin: 0 }}>Attend live classes, work on real projects, get 1-on-1 feedback, and build a portfolio that lands clients. See how our graduates are <Link to="/success-stories/" style={{color:'var(--primary)'}}>earning ৳38K–৳1.2L/month</Link>.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Course Announcement Videos */}
+      <section className="section">
         <div className="container">
           <p className="pre-label center">Batch Announcements</p>
           <h2 className="center">Upcoming Course Batches — Watch</h2>

@@ -2,33 +2,46 @@ import { Link } from 'react-router-dom'
 import VideoCard from '../components/VideoCard'
 import { videos } from '../data/videos'
 import AdvancedSEO from '../components/AdvancedSEO'
-import { breadcrumbSchema } from '../data/schemas'
+import Breadcrumb from '../components/Breadcrumb'
+import { breadcrumbSchema, servicesSchema } from '../data/schemas'
 import { seoPages } from '../data/seo-config'
 
 const services = [
   {
-    icon: '🎓', title: 'Freelancing Training', desc: 'Structured 6–20 week courses taught by active freelancers. Live sessions, recordings, and weekly assignments.',
+    icon: '🎓', title: 'Freelancing Training', 
+    desc: 'Structured 6–20 week courses taught by active freelancers with real marketplace experience. Live sessions, lifetime recordings, and weekly assignments designed to build job-ready skills. Choose from graphic design, WordPress development, digital marketing, content writing, eCommerce, and virtual assistant training.',
     features: ['Beginner to advanced tracks','Live class + recordings','Weekly mentor Q&A','Certificate on completion'],
+    link: '/courses/',
   },
   {
-    icon: '🧑‍💼', title: 'Career Mentorship', desc: 'One-on-one guidance to plan your freelancing career, pick the right niche, and avoid costly beginner mistakes.',
+    icon: '🧑‍💼', title: 'Career Mentorship', 
+    desc: 'One-on-one guidance to plan your freelancing career, pick the right niche, and avoid costly beginner mistakes. Our mentors are earning freelancers who understand what clients want and how to position yourself for high-paying projects.',
     features: ['Personalized career roadmap','Niche & platform selection','Monthly check-in calls','Portfolio critique sessions'],
+    link: '/admission/',
   },
   {
-    icon: '🖥️', title: 'Profile Setup & Optimization', desc: 'We build and optimize your Upwork, Fiverr, and LinkedIn profiles for maximum client visibility.',
+    icon: '🖥️', title: 'Profile Setup & Optimization', 
+    desc: 'We build and optimize your Upwork, Fiverr, and LinkedIn profiles for maximum client visibility. Get professional bio writing, keyword optimization, portfolio setup, and gig creation that converts browsers into buyers. Stand out from the 10,000+ other Bangladeshi freelancers competing for the same clients.',
     features: ['Professional bio writing','Gig/service optimization','Keyword-ranked profiles','Profile photo guidance'],
+    link: '/admission/',
   },
   {
-    icon: '📁', title: 'Portfolio Development', desc: 'We guide you to build a client-ready portfolio with real projects, case studies, and professional presentation.',
+    icon: '📁', title: 'Portfolio Development', 
+    desc: 'We guide you to build a client-ready portfolio with real projects, case studies, and professional presentation. Whether you\'re a designer, developer, or marketer, we help you showcase work that proves you can deliver results — not just pretty mockups.',
     features: ['Real project assignments','Behance/Dribbble setup','Case study templates','Client-ready PDF portfolio'],
+    link: '/admission/',
   },
   {
-    icon: '🤝', title: 'Client Acquisition Support', desc: 'Learn how to pitch, write proposals, price your services, and close your first client confidently.',
+    icon: '🤝', title: 'Client Acquisition Support', 
+    desc: 'Learn how to pitch, write proposals that win, price your services competitively, and close your first client confidently. We provide templates, scripts, and live feedback on your actual proposals so you land paying projects faster. Many students get their first client within 30 days of completing this module.',
     features: ['Proposal writing templates','Cold outreach scripts','Rate negotiation tactics','Contract & invoice basics'],
+    link: '/admission/',
   },
   {
-    icon: '🏢', title: 'Corporate Training', desc: 'We offer tailored freelancing and digital skills training for organizations, NGOs, and government programs.',
+    icon: '🏢', title: 'Corporate Training', 
+    desc: 'We offer tailored freelancing and digital skills training for organizations, NGOs, and government programs. Custom curriculum designed for your team\'s goals — upskill employees, empower communities, or launch workforce development initiatives. Proven track record with 3,000+ corporate trainees.',
     features: ['Custom curriculum design','On-site or online delivery','Bulk enrollment discounts','Official certificates issued'],
+    link: '/admission/',
   },
 ]
 
@@ -47,16 +60,22 @@ export default function Services() {
         description={seoPages.services.description}
         canonical={seoPages.services.canonical}
         keywords={seoPages.services.keywords}
-        schema={breadcrumbSchema([
+        schema={[breadcrumbSchema([
           { name: 'Home', url: '/' },
           { name: 'Services', url: '/services/' },
-        ])}
+        ]), servicesSchema]}
       />
       <div className="page-hero alt-section">
-        <div className="container center">
-          <p className="pre-label">What We Offer</p>
-          <h1>Our Services</h1>
-          <p className="lead">Everything you need to go from zero to a full-time freelancing income.</p>
+        <div className="container">
+          <Breadcrumb items={[
+            { name: 'Home', url: '/' },
+            { name: 'Services' },
+          ]} />
+          <div className="center">
+            <p className="pre-label">What We Offer</p>
+            <h1>Our Services</h1>
+            <p className="lead">Everything you need to go from zero to a full-time freelancing income. Explore our <Link to="/courses/" style={{color:'var(--primary)'}}>structured courses</Link> or <Link to="/admission/" style={{color:'var(--primary)'}}>apply for admission</Link>.</p>
+          </div>
         </div>
       </div>
 
@@ -71,6 +90,9 @@ export default function Services() {
                 <ul className="feature-list">
                   {s.features.map(f => <li key={f}>✅ {f}</li>)}
                 </ul>
+                <Link to={s.link} className="btn btn-ghost btn-sm" style={{ marginTop: '1rem' }}>
+                  Learn More →
+                </Link>
               </div>
             ))}
           </div>
@@ -101,7 +123,7 @@ export default function Services() {
               <p className="pre-label">Free Tips from Our Instructor</p>
               <h2>Freelancing Tips — Watch Free</h2>
             </div>
-            <Link to="/videos" className="btn btn-outline">All Videos →</Link>
+            <Link to="/videos/" className="btn btn-outline">All Videos →</Link>
           </div>
           <div className="grid-3">
             {videos.tips.map(v => (
@@ -115,7 +137,7 @@ export default function Services() {
         <div className="container center">
           <h2>Not Sure Which Service is Right for You?</h2>
           <p>Book a free 20-minute consultation — we'll guide you to the right path.</p>
-          <Link to="/admission" className="btn btn-lg btn-gold">Book Free Consultation</Link>
+          <Link to="/admission/" className="btn btn-lg btn-gold">Book Free Consultation</Link>
         </div>
       </section>
     </>

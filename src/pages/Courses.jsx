@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import VideoCard from '../components/VideoCard'
 import { videos } from '../data/videos'
 import AdvancedSEO from '../components/AdvancedSEO'
+import Breadcrumb from '../components/Breadcrumb'
 import { coursesSchema, breadcrumbSchema } from '../data/schemas'
 import { seoPages } from '../data/seo-config'
 
@@ -108,10 +109,16 @@ export default function Courses() {
         }}
       />
       <div className="page-hero alt-section">
-        <div className="container center">
-          <p className="pre-label">Our Curriculum</p>
-          <h1>Course Modules</h1>
-          <p className="lead">Each course is designed by active freelancers — practical, structured, and marketplace-ready.</p>
+        <div className="container">
+          <Breadcrumb items={[
+            { name: 'Home', url: '/' },
+            { name: 'Courses' },
+          ]} />
+          <div className="center">
+            <p className="pre-label">Our Curriculum</p>
+            <h1>Freelancing Courses in Bangladesh — Learn High-Income Skills</h1>
+            <p className="lead">Each structured freelancing course is designed by active freelancers — practical, marketplace-ready. From <strong>graphic design and WordPress development</strong> to <strong>digital marketing and content writing</strong>, we teach skills that pay. Explore our <Link to="/services/" style={{color:'var(--primary)'}}>training & mentorship services</Link> or <Link to="/admission/" style={{color:'var(--primary)'}}>apply now</Link>.</p>
+          </div>
         </div>
       </div>
 
@@ -123,7 +130,7 @@ export default function Courses() {
               <p className="pre-label">Free Preview Classes</p>
               <h2>Watch Before You Enroll</h2>
             </div>
-            <Link to="/videos" className="btn btn-outline">All Free Videos →</Link>
+            <Link to="/videos/" className="btn btn-outline">All Free Videos →</Link>
           </div>
 
           {/* Digital Marketing Series */}
@@ -149,8 +156,41 @@ export default function Courses() {
         </div>
       </section>
 
+      {/* ─── Job-Ready Skills Section ─── */}
+      <section className="section alt-section">
+        <div className="container">
+          <p className="pre-label center">Why Our Courses Work</p>
+          <h2 className="center">Job-Ready Skills That Clients Actually Pay For</h2>
+          <p className="lead center" style={{ margin: '0.75rem auto 2.5rem', maxWidth: '75ch' }}>
+            Unlike generic online courses, every module is designed around <strong>real client projects</strong>. You don't just watch videos — you build portfolios, practice proposals, and learn the soft skills (pricing, communication, delivery) that separate hobbyists from earning freelancers. See <Link to="/success-stories/" style={{color:'var(--primary)'}}>how our graduates are earning</Link> ৳38K–৳1.2L per month on Upwork, Fiverr, and with direct clients.
+          </p>
+          <div className="grid-3" style={{ marginTop: '2rem' }}>
+            <div className="card why-card">
+              <div className="why-icon">💼</div>
+              <h3>Live Projects</h3>
+              <p>Work on real client scenarios during the course so you graduate with a portfolio clients trust.</p>
+            </div>
+            <div className="card why-card">
+              <div className="why-icon">🎯</div>
+              <h3>Marketplace Focus</h3>
+              <p>Learn how to optimize your Upwork, Fiverr, and LinkedIn profiles to attract high-paying clients from day one.</p>
+            </div>
+            <div className="card why-card">
+              <div className="why-icon">🤝</div>
+              <h3>Lifetime Mentorship</h3>
+              <p>Get ongoing support even after graduation — portfolio reviews, proposal feedback, and career guidance for life.</p>
+            </div>
+          </div>
+          <div style={{ textAlign: 'center', marginTop: '2.5rem' }}>
+            <Link to="/admission/" className="btn btn-lg">Enroll in a Course Today →</Link>
+          </div>
+        </div>
+      </section>
+
       <section className="section">
         <div className="container">
+          <p className="pre-label center">Detailed Course Breakdown</p>
+          <h2 className="center">Choose Your Path to Freelancing Success</h2>
           <div className="courses-list">
             {modules.map((m) => (
               <div key={m.title} className="card course-detail">
@@ -178,9 +218,12 @@ export default function Courses() {
                     <div className="tools-grid">
                       {m.tools.map(t => <span key={t} className="tool-tag">{t}</span>)}
                     </div>
-                    <Link to="/admission" className="btn" style={{marginTop:20,display:'block',textAlign:'center'}}>
+                    <Link to="/admission/" className="btn" style={{marginTop:20,display:'block',textAlign:'center'}}>
                       Enroll in This Course →
                     </Link>
+                    <p style={{ fontSize: '0.85rem', color: 'var(--muted)', marginTop: '0.75rem', textAlign: 'center' }}>
+                      See <Link to="/success-stories/" style={{color:'var(--primary)'}}>student success stories</Link> from this course
+                    </p>
                   </div>
                 </div>
               </div>

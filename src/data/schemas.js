@@ -184,55 +184,6 @@ export const successSchema = {
   ],
 }
 
-export const localBusinessSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  name: 'Freelancing Institute BD',
-  image: `${DOMAIN}/branding/logo-fibd.svg`,
-  '@id': DOMAIN,
-  url: DOMAIN,
-  telephone: '+880-1710-001100',
-  priceRange: '৳৳',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: 'Tangail Sadar',
-    addressLocality: 'Tangail',
-    addressRegion: 'Dhaka Division',
-    postalCode: '1900',
-    addressCountry: 'BD',
-  },
-  geo: {
-    '@type': 'GeoCoordinates',
-    latitude: 24.2513,
-    longitude: 89.9167,
-  },
-  openingHoursSpecification: [
-    {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday'],
-      opens: '09:00',
-      closes: '21:00',
-    },
-  ],
-  sameAs: [
-    'https://www.facebook.com/freelancerhamidurrahman44',
-    'https://www.youtube.com/@FreelancerHamidurRahman44',
-  ],
-}
-
-export function breadcrumbSchema(items) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: items.map((item, index) => ({
-      '@type': 'ListItem',
-      position: index + 1,
-      name: item.name,
-      item: item.url ? `${DOMAIN}${item.url}` : undefined,
-    })),
-  }
-}
-
 export function videoSchema(video) {
   return {
     '@context': 'https://schema.org',
