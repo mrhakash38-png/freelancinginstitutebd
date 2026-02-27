@@ -22,7 +22,13 @@ export default function AdvancedSEO({
   
   // Ensure canonical is always set - fallback to current path if not provided
   const finalCanonical = canonical || location.pathname
-  const fullUrl = `${DOMAIN}${finalCanonical.startsWith('/') ? finalCanonical : '/' + finalCanonical}`
+  
+  let fullUrl
+  if (finalCanonical.startsWith('http')) {
+    fullUrl = finalCanonical
+  } else {
+    fullUrl = `${DOMAIN}${finalCanonical.startsWith('/') ? finalCanonical : '/' + finalCanonical}`
+  }
   
   const fullTitle = title ? `${title}` : `${SITE} — Learn. Build. Earn Online.`
 
