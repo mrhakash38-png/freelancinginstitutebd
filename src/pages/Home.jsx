@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom'
 import VideoEmbed from '../components/VideoEmbed'
 import VideoCard from '../components/VideoCard'
-import SEO from '../components/SEO'
-import { homeSchema } from '../data/schemas'
+import AdvancedSEO from '../components/AdvancedSEO'
+import { homeSchema, localBusinessSchema, breadcrumbSchema } from '../data/schemas'
+import { seoPages } from '../data/seo-config'
 import { videos } from '../data/videos'
 
 const stats = [
@@ -96,11 +97,21 @@ const recentPosts = [
 export default function Home() {
   return (
     <>
-      <SEO
-        title="Freelancing Course in Bangladesh — Learn &amp; Earn Online"
-        description="Bangladesh's top freelancing training institute. 5,000+ students trained in Graphic Design, WordPress, Digital Marketing & more. Live Bangla classes, real projects, job support. Apply free."
-        canonical="/"
-        schema={homeSchema}
+      <AdvancedSEO
+        title={seoPages.home.title}
+        description={seoPages.home.description}
+        canonical={seoPages.home.canonical}
+        keywords={seoPages.home.keywords}
+        schema={{
+          '@context': 'https://schema.org',
+          '@graph': [
+            homeSchema,
+            localBusinessSchema,
+            breadcrumbSchema([
+              { name: 'Home', url: '/' },
+            ]),
+          ],
+        }}
       />
       {/* ─── Hero ─── */}
       <section className="hero">

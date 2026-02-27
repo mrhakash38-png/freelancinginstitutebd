@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import SEO from '../components/SEO'
+import AdvancedSEO from '../components/AdvancedSEO'
 
+import { breadcrumbSchema } from '../data/schemas'
+import { seoPages } from '../data/seo-config'
 const albums = [
   {
     id: 'classroom',
@@ -65,10 +67,11 @@ export default function Gallery() {
 
   return (
     <>
-      <SEO
-        title="Gallery — Classes, Graduation & Student Life | FIBD"
-        description="Photo gallery of Freelancing Institute BD — live classes, graduation ceremonies, student life, and events. See our vibrant learning community in Tangail, Dhaka, Bangladesh."
-        canonical="/gallery/"
+      <AdvancedSEO
+        title={seoPages.gallery.title}
+        description={seoPages.gallery.description}
+        canonical={seoPages.gallery.canonical}
+        keywords={seoPages.gallery.keywords}
       />
       <div className="page-hero alt-section">
         <div className="container center">

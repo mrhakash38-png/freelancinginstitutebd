@@ -1,7 +1,9 @@
 import { useParams, Link } from 'react-router-dom'
 import { posts } from '../data/posts'
-import SEO from '../components/SEO'
+import AdvancedSEO from '../components/AdvancedSEO'
 import { blogPostSchema } from '../data/schemas'
+import { breadcrumbSchema } from '../data/schemas'
+import { seoPages } from '../data/seo-config'
 
 function renderContent(text) {
   return text.trim().split('\n\n').map((block, i) => {
@@ -28,7 +30,7 @@ export default function BlogPost() {
 
   return (
     <>
-      <SEO
+      <AdvancedSEO
         title={post.title}
         description={post.excerpt}
         canonical={`/blog/${post.slug}/`}

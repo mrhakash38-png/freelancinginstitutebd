@@ -1,5 +1,65 @@
 const DOMAIN = 'https://freelancinginstitutebd.com'
 
+// Local Business Schema - Critical for Ranking
+export const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'Freelancing Institute BD',
+  image: `${DOMAIN}/branding/logo-fibd.svg`,
+  description: "Bangladesh's most trusted freelancing training institute with 5,000+ students trained.",
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Tangail, Dhaka',
+    addressLocality: 'Tangail',
+    addressRegion: 'Dhaka',
+    postalCode: '1900',
+    addressCountry: 'BD',
+  },
+  telephone: '+880-1710-001100',
+  email: 'contact@freelancinginstitutebd.com',
+  url: DOMAIN,
+  priceRange: '৳৳',
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '09:00',
+      closes: '18:00',
+    },
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Saturday'],
+      opens: '10:00',
+      closes: '16:00',
+    },
+  ],
+  sameAs: [
+    'https://www.facebook.com/freelancerhamidurrahman44',
+    'https://www.youtube.com/@FreelancerHamidurRahman44',
+  ],
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.9',
+    ratingCount: '500',
+    bestRating: '5',
+    worstRating: '1',
+  },
+}
+
+// Breadcrumb Schema - Navigation SEO
+export function breadcrumbSchema(items) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, idx) => ({
+      '@type': 'ListItem',
+      position: idx + 1,
+      name: item.name,
+      item: `${DOMAIN}${item.url}`,
+    })),
+  }
+}
+
 export const orgSchema = {
   '@context': 'https://schema.org',
   '@type': 'EducationalOrganization',
@@ -124,7 +184,135 @@ export const successSchema = {
   ],
 }
 
-export function blogPostSchema(post) {
+export const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'Freelancing Institute BD',
+  image: `${DOMAIN}/branding/logo-fibd.svg`,
+  '@id': DOMAIN,
+  url: DOMAIN,
+  telephone: '+880-1710-001100',
+  priceRange: '৳৳',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Tangail Sadar',
+    addressLocality: 'Tangail',
+    addressRegion: 'Dhaka Division',
+    postalCode: '1900',
+    addressCountry: 'BD',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 24.2513,
+    longitude: 89.9167,
+  },
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday'],
+      opens: '09:00',
+      closes: '21:00',
+    },
+  ],
+  sameAs: [
+    'https://www.facebook.com/freelancerhamidurrahman44',
+    'https://www.youtube.com/@FreelancerHamidurRahman44',
+  ],
+}
+
+export function breadcrumbSchema(items) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      item: item.url ? `${DOMAIN}${item.url}` : undefined,
+    })),
+  }
+}
+
+export function videoSchema(video) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'VideoObject',
+    name: video.title,
+    description: video.description || video.titleEn || video.title,
+    thumbnailUrl: `https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`,
+    uploadDate: video.date || '2024-01-01',
+    contentUrl: `https://www.youtube.com/watch?v=${video.id}`,
+    embedUrl: `https://www.youtube.com/embed/${video.id}`,
+    duration: video.duration || 'PT5M',
+    publisher: {
+      '@type': 'Organization',
+      name: 'Freelancing Institute BD',
+      logo: {
+        '@type': 'ImageObject',
+        url: `${DOMAIN}/branding/logo-fibd.svg`,
+      },
+    },
+  }
+}
+
+export const servicesSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Service',
+      name: 'Freelancing Training',
+      provider: { '@type': 'Organization', name: 'Freelancing Institute BD' },
+      description: 'Comprehensive freelancing courses in Graphic Design, WordPress, Digital Marketing, and more with live Bangla mentorship.',
+      areaServed: 'BD',
+      availableChannel: {
+        '@type': 'ServiceChannel',
+        serviceUrl: `${DOMAIN}/courses`,
+      },
+    },
+    {
+      '@type': 'Service',
+      name: 'Profile Setup & Mentorship',
+      provider: { '@type': 'Organization', name: 'Freelancing Institute BD' },
+      description: 'Professional marketplace profile creation, portfolio building, and one-on-one mentorship for Upwork, Fiverr, and direct clients.',
+      areaServed: 'BD',
+      availableChannel: {
+        '@type': 'ServiceChannel',
+        serviceUrl: `${DOMAIN}/services`,
+      },
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'What services does Freelancing Institute BD offer?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'We offer structured freelancing courses, live Bangla mentorship, marketplace profile setup (Upwork/Fiverr), portfolio building, job application support, and lifetime career guidance.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Do you help with marketplace account creation?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Yes. We guide students through Upwork and Fiverr account setup, profile optimization, portfolio creation, and first client outreach.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Is mentorship available after course completion?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Yes. All students get lifetime access to our alumni group for ongoing support, portfolio reviews, and career advice.',
+          },
+        },
+      ],
+    },
+  ],
+}
+
+export function blogPostSchema(post, keywords = '') {
   return {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
@@ -135,6 +323,6 @@ export function blogPostSchema(post) {
     publisher: { '@type': 'Organization', name: 'Freelancing Institute BD', logo: { '@type': 'ImageObject', url: `${DOMAIN}/branding/logo-fibd.svg` } },
     datePublished: post.date,
     mainEntityOfPage: { '@type': 'WebPage', '@id': `${DOMAIN}/blog/${post.slug}` },
-    keywords: 'freelancing bangladesh, digital marketing course, upwork fiverr tips',
+    keywords: keywords || 'freelancing bangladesh, digital marketing course, upwork fiverr tips',
   }
 }

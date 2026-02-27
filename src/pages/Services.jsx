@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom'
 import VideoCard from '../components/VideoCard'
 import { videos } from '../data/videos'
-import SEO from '../components/SEO'
+import AdvancedSEO from '../components/AdvancedSEO'
+import { breadcrumbSchema } from '../data/schemas'
+import { seoPages } from '../data/seo-config'
 
 const services = [
   {
@@ -40,10 +42,15 @@ const process = [
 export default function Services() {
   return (
     <>
-      <SEO
-        title="Freelancing Training Services in Bangladesh — FIBD"
-        description="Comprehensive freelancing services: structured courses, career mentorship, Upwork & Fiverr profile setup, portfolio building, client acquisition support, and corporate training in Bangladesh."
-        canonical="/services/"
+      <AdvancedSEO
+        title={seoPages.services.title}
+        description={seoPages.services.description}
+        canonical={seoPages.services.canonical}
+        keywords={seoPages.services.keywords}
+        schema={breadcrumbSchema([
+          { name: 'Home', url: '/' },
+          { name: 'Services', url: '/services/' },
+        ])}
       />
       <div className="page-hero alt-section">
         <div className="container center">

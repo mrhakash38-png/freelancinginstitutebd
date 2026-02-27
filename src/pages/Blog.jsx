@@ -1,17 +1,20 @@
 import { Link } from 'react-router-dom'
-import SEO from '../components/SEO'
+import AdvancedSEO from '../components/AdvancedSEO'
 import { posts } from '../data/posts'
 
+import { breadcrumbSchema } from '../data/schemas'
+import { seoPages } from '../data/seo-config'
 export default function Blog() {
   const featured = posts[0]
   const rest = posts.slice(1)
 
   return (
     <>
-      <SEO
-        title="Freelancing Blog — Tips, Guides & Career Advice | FIBD"
-        description="Practical freelancing guides for Bangladeshis: how to start on Upwork/Fiverr, top skills in 2026, writing winning proposals, getting paid via Bkash/Payoneer. Updated regularly."
-        canonical="/blog/"
+      <AdvancedSEO
+        title={seoPages.blog.title}
+        description={seoPages.blog.description}
+        canonical={seoPages.blog.canonical}
+        keywords={seoPages.blog.keywords}
       />
       <div className="page-hero alt-section">
         <div className="container center">

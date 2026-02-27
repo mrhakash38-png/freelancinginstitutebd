@@ -2,8 +2,10 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import VideoCard from '../components/VideoCard'
 import { allVideos, videos, CHANNEL_URL } from '../data/videos'
+import { breadcrumbSchema } from '../data/schemas'
+import { seoPages } from '../data/seo-config'
 import { FacebookPageEmbed, FB_URL } from '../components/FacebookWidget'
-import SEO from '../components/SEO'
+import AdvancedSEO from '../components/AdvancedSEO'
 
 const TAGS = ['All', 'Success Story', 'Student Win', 'Student Earnings', 'Income Proof',
   'Beginner Tips', 'Common Mistakes', 'Advanced Tips', 'Fiverr Guide', 'New Platform',
@@ -17,10 +19,11 @@ export default function Videos() {
 
   return (
     <>
-      <SEO
-        title="Free Freelancing Video Lessons — Hamidur Rahman | FIBD"
-        description="Watch 30+ free freelancing video lessons by Hamidur Rahman: Digital Marketing course series, YouTube Marketing, success stories, Upwork/Fiverr tips — all in Bangla, free to watch."
-        canonical="/videos/"
+      <AdvancedSEO
+        title={seoPages.videos.title}
+        description={seoPages.videos.description}
+        canonical={seoPages.videos.canonical}
+        keywords={seoPages.videos.keywords}
       />
       <div className="page-hero alt-section">
         <div className="container center">

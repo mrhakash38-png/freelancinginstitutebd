@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom'
 import VideoCard from '../components/VideoCard'
 import { videos } from '../data/videos'
-import SEO from '../components/SEO'
-import { coursesSchema } from '../data/schemas'
+import AdvancedSEO from '../components/AdvancedSEO'
+import { coursesSchema, breadcrumbSchema } from '../data/schemas'
+import { seoPages } from '../data/seo-config'
 
 const modules = [
   {
@@ -90,11 +91,21 @@ const modules = [
 export default function Courses() {
   return (
     <>
-      <SEO
-        title="Freelancing Courses in Bangladesh — Graphic Design, WordPress, Digital Marketing"
-        description="Explore 6 structured freelancing courses in Bangladesh: Graphic Design (৳8,000), WordPress (৳10,000), Digital Marketing (৳7,500), Content Writing, eCommerce & VA. Bangla medium, live classes."
-        canonical="/courses/"
-        schema={coursesSchema}
+      <AdvancedSEO
+        title={seoPages.courses.title}
+        description={seoPages.courses.description}
+        canonical={seoPages.courses.canonical}
+        keywords={seoPages.courses.keywords}
+        schema={{
+          '@context': 'https://schema.org',
+          '@graph': [
+            coursesSchema,
+            breadcrumbSchema([
+              { name: 'Home', url: '/' },
+              { name: 'Courses', url: '/courses/' },
+            ]),
+          ],
+        }}
       />
       <div className="page-hero alt-section">
         <div className="container center">

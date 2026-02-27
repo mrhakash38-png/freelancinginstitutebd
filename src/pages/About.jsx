@@ -2,8 +2,10 @@ import { Link } from 'react-router-dom'
 import VideoCard from '../components/VideoCard'
 import VideoEmbed from '../components/VideoEmbed'
 import { videos } from '../data/videos'
+import { breadcrumbSchema } from '../data/schemas'
+import { seoPages } from '../data/seo-config'
 import { FacebookPageEmbed, FacebookLikeBtn, FB_URL } from '../components/FacebookWidget'
-import SEO from '../components/SEO'
+import AdvancedSEO from '../components/AdvancedSEO'
 import { aboutSchema } from '../data/schemas'
 
 const team = [
@@ -25,10 +27,11 @@ const milestones = [
 export default function About() {
   return (
     <>
-      <SEO
-        title="About Us — Freelancing Institute BD, Dhaka Bangladesh"
-        description="Learn about Freelancing Institute BD — founded in Dhaka 2019, 5,000+ students trained, led by Top-Rated freelancer Hamidur Rahman. Our mission, vision, team, and story."
-        canonical="/about/"
+      <AdvancedSEO
+        title={seoPages.about.title}
+        description={seoPages.about.description}
+        canonical={seoPages.about.canonical}
+        keywords={seoPages.about.keywords}
         schema={aboutSchema}
       />
       {/* Hero */}
