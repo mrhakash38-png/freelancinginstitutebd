@@ -68,7 +68,7 @@ export default function Gallery() {
       <SEO
         title="Gallery — Classes, Graduation & Student Life | FIBD"
         description="Photo gallery of Freelancing Institute BD — live classes, graduation ceremonies, student life, and events. See our vibrant learning community in Tangail, Dhaka, Bangladesh."
-        canonical="/gallery"
+        canonical="/gallery/"
       />
       <div className="page-hero alt-section">
         <div className="container center">

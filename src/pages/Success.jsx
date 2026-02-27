@@ -74,7 +74,7 @@ export default function Success() {
       <SEO
         title="Student Success Stories — Freelancing Institute BD"
         description="Read real success stories from 1,500+ graduates of Freelancing Institute BD. Students earning ৳38,000–৳1,20,000/month on Upwork, Fiverr and direct clients."
-        canonical="/success-stories"
+        canonical="/success-stories/"
         schema={successSchema}
       />
       <div className="page-hero alt-section">

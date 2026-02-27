@@ -11,7 +11,7 @@ export default function Blog() {
       <SEO
         title="Freelancing Blog — Tips, Guides & Career Advice | FIBD"
         description="Practical freelancing guides for Bangladeshis: how to start on Upwork/Fiverr, top skills in 2026, writing winning proposals, getting paid via Bkash/Payoneer. Updated regularly."
-        canonical="/blog"
+        canonical="/blog/"
       />
       <div className="page-hero alt-section">
         <div className="container center">

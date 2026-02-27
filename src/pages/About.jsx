@@ -28,7 +28,7 @@ export default function About() {
       <SEO
         title="About Us — Freelancing Institute BD, Dhaka Bangladesh"
         description="Learn about Freelancing Institute BD — founded in Dhaka 2019, 5,000+ students trained, led by Top-Rated freelancer Hamidur Rahman. Our mission, vision, team, and story."
-        canonical="/about"
+        canonical="/about/"
         schema={aboutSchema}
       />
       {/* Hero */}

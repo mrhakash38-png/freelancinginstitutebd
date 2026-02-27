@@ -43,7 +43,7 @@ export default function Services() {
       <SEO
         title="Freelancing Training Services in Bangladesh — FIBD"
         description="Comprehensive freelancing services: structured courses, career mentorship, Upwork & Fiverr profile setup, portfolio building, client acquisition support, and corporate training in Bangladesh."
-        canonical="/services"
+        canonical="/services/"
       />
       <div className="page-hero alt-section">
         <div className="container center">

@@ -31,7 +31,7 @@ export default function BlogPost() {
       <SEO
         title={post.title}
         description={post.excerpt}
-        canonical={`/blog/${post.slug}`}
+        canonical={`/blog/${post.slug}/`}
         image={post.img}
         type="article"
         schema={blogPostSchema(post)}

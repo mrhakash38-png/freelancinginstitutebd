@@ -20,7 +20,7 @@ export default function Videos() {
       <SEO
         title="Free Freelancing Video Lessons — Hamidur Rahman | FIBD"
         description="Watch 30+ free freelancing video lessons by Hamidur Rahman: Digital Marketing course series, YouTube Marketing, success stories, Upwork/Fiverr tips — all in Bangla, free to watch."
-        canonical="/videos"
+        canonical="/videos/"
       />
       <div className="page-hero alt-section">
         <div className="container center">

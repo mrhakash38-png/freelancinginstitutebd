@@ -93,7 +93,7 @@ export default function Courses() {
       <SEO
         title="Freelancing Courses in Bangladesh — Graphic Design, WordPress, Digital Marketing"
         description="Explore 6 structured freelancing courses in Bangladesh: Graphic Design (৳8,000), WordPress (৳10,000), Digital Marketing (৳7,500), Content Writing, eCommerce & VA. Bangla medium, live classes."
-        canonical="/courses"
+        canonical="/courses/"
         schema={coursesSchema}
       />
       <div className="page-hero alt-section">
